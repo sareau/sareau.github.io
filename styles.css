@@ -1,0 +1,29 @@
+img {
+    width: 97vw;
+    height: auto;
+}
+
+table {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+td {
+    font-family: 'Chivo', sans-serif;
+    font-size: 14pt;
+}
+
+a {
+    color: rgb(0,0,0);
+    text-decoration: none;
+}
+
+.left {
+    padding-right: 60px;
+}
+
+.right {
+    padding-left: 60px;
+}
