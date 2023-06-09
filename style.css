@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
+
+:root {
+    --red: #B50D02;
+    --viewport-height: 100vh;
+    --viewport-width: 100vw;
+}
+
+body {
+    margin: 0;
+    min-height: var(--viewport-height);
+    min-width: var(--viewport-width);
+    font-family: 'Inter', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.wrapper {
+    height: 80vh;
+    width: 80vw;
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+}
+
+.wrapper > nav {
+    width: 100%;
+    height: 12.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.wrapper > nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.wrapper > nav a h1,h2 {
+    font-weight: 400;
+}
+
+.wrapper > nav a h1 {
+    font-size: 2rem;
+}
+
+.wrapper > nav a h2 {
+    font-size: 1.5rem;
+}
+
+.wrapper > nav > .stuff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: right;
+}
+
+.wrapper > .color {
+    height: 87.5%;
+    background-color: var(--red);
+}
