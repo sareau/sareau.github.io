@@ -2,7 +2,7 @@
 
 :root {
     --red: #B50D02;
-    --viewport-height: 100vh;
+    --viewport-height: 100dvh;
     --viewport-width: 100vw;
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 .wrapper {
-    height: 80vh;
+    height: 80dvh;
     width: 80vw;
     position: absolute;
     top: 10vh;
