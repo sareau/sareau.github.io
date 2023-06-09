@@ -1,18 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap');
 
 :root {
+    /* colors */
     --red: #B50D02;
+
+    /* font sizes */
+    --h1: 2rem;
+    --h2: 1.5rem;
+    --h3: 1.2rem;
+    --p: 1rem;
+
+    /* viewport */
     --viewport-height: 100dvh;
     --viewport-width: 100vw;
+
+    /* fonts */
+    --inter: 'Inter', sans-serif;
+    --jmono: 'JetBrains Mono', monospace;
 }
 
 body {
     margin: 0;
     min-height: var(--viewport-height);
     min-width: var(--viewport-width);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--jmono);
     background-color: black;
     color: white;
+
+    animation: fade_in ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .wrapper {
@@ -21,11 +48,12 @@ body {
     position: absolute;
     top: 10vh;
     left: 10vw;
+    display: grid;
+    grid-template-rows: 1fr 7fr;
 }
 
 .wrapper > nav {
     width: 100%;
-    height: 12.5%;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -40,11 +68,11 @@ body {
 }
 
 .wrapper > nav a h1 {
-    font-size: 2rem;
+    font-size: var(--h1);
 }
 
 .wrapper > nav a h2 {
-    font-size: 1.5rem;
+    font-size: var(--h2);
 }
 
 .wrapper > nav > .stuff {
@@ -54,6 +82,30 @@ body {
 }
 
 .wrapper > .color {
-    height: 87.5%;
     background-color: var(--red);
+}
+
+.wrapper > .content h1 {
+    font-weight: 400;
+}
+
+.wrapper > .content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.wrapper > .content .list-l2 {
+    text-indent: 2rem;
+}
+
+.wrapper > .content li > p::before {
+    content: "* ";
+}
+
+.wrapper > .content > .profiles a {
+    color: white;
+}
+
+hr {
+    margin: 2rem 0;
 }
