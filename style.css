@@ -87,6 +87,7 @@ body {
 
 .wrapper > .content h1 {
     font-weight: 400;
+    font-style: italic;
 }
 
 .wrapper > .content ul {
@@ -98,7 +99,7 @@ body {
     text-indent: 2rem;
 }
 
-.wrapper > .content li > p::before {
+.wrapper > .content li p::before {
     content: "* ";
 }
 
@@ -108,4 +109,13 @@ body {
 
 hr {
     margin: 2rem 0;
+}
+
+.work-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.work-item a:hover, a:focus {
+    font-weight: 700;
 }
