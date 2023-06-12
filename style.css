@@ -18,7 +18,14 @@
     /* fonts */
     --inter: 'Inter', sans-serif;
     --jmono: 'JetBrains Mono', monospace;
+
+    overflow-x: hidden;
 }
+
+::-webkit-scrollbar {width: 0.5vw;}
+::-webkit-scrollbar-track {background: black;}
+::-webkit-scrollbar-thumb {background: lightgray;}
+::-webkit-scrollbar-thumb:hover {background: white;}
 
 body {
     margin: 0;
@@ -99,7 +106,7 @@ body {
     text-indent: 2rem;
 }
 
-.wrapper > .content li p::before {
+.wrapper > .content li > p::before {
     content: "* ";
 }
 
@@ -111,12 +118,67 @@ hr {
     margin: 2rem 0;
 }
 
-.work-item a {
-    font-weight: 400;
-    color: white;
-    text-decoration: none;
+.work-item {
+    margin-bottom: 1rem;
+    padding: 0;
 }
 
-.work-item a:hover, a:focus {
-    font-weight: 700;
+.work-item[open] {
+    margin-bottom: 2rem;
+}
+
+.work-item > summary {
+    list-style: none;
+}
+
+.work-item > summary::before {
+    content: "* "
+}
+
+.work-item > summary::after {
+    content: " see details";
+    color: gray;
+    cursor: pointer;
+}
+
+.read-link {
+    font-weight: 500;
+    font-style: italic;
+    text-decoration: none;
+    color: white;
+}
+
+.read-link::before {
+    content: "-> ";
+    font-weight: 400;
+    font-style: normal;
+}
+
+.read-link:hover, .read-link:focus {
+    font-weight: 800;
+}
+
+.tags li {
+    display: inline-block;
+    border: white solid 1px;
+    border-radius: 0.2rem;
+    padding: 0 0.2rem;
+}
+
+.tag {
+    font-weight: 200
+}
+
+.fandom {
+    font-weight: 800;
+}
+
+.relationship {
+    font-weight: 500;
+    font-style: italic;
+}
+
+.details {
+    padding-left: 4rem;
+    text-indent: -4rem;
 }
