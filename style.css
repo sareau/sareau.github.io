@@ -118,27 +118,45 @@ hr {
     margin: 2rem 0;
 }
 
-.work-item {
+.padding {
+    height: 5vh;
+}
+
+/* works tabs list / tabs */
+
+.tab-link {
+    font-size: var(--p);
+    font-family: var(--jmono);
+    color: white;
+    background-color: black;
+    border: white solid 1px;
+    border-radius: 0.2rem;
+    padding: 0 0.2rem;
+    cursor: pointer;
+}
+
+.tab-link:hover {
+    font-weight: 600;
+}
+
+.tab-link.active {
+    color: black;
+    background-color: white;
+}
+
+.tab {
+    display: none;
+}
+
+/* writing and fanfiction tab */
+
+.fanfiction-item, .writing-item {
     margin-bottom: 1rem;
     padding: 0;
 }
 
-.work-item[open] {
+.fanfiction-item[open], .writing-item[open] {
     margin-bottom: 2rem;
-}
-
-.work-item > summary {
-    list-style: none;
-}
-
-.work-item > summary::before {
-    content: "* "
-}
-
-.work-item > summary::after {
-    content: " see details";
-    color: gray;
-    cursor: pointer;
 }
 
 .read-link {
@@ -169,6 +187,59 @@ hr {
     font-weight: 200
 }
 
+.details {
+    padding-left: 4rem;
+    text-indent: -4rem;
+}
+
+/* writing only */
+
+.writing-item > summary {
+    list-style: none;
+}
+
+.writing-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.writing-item > summary::before {
+    content: "* "
+}
+
+.writing-item > summary::after {
+    content: " see details";
+    color: gray;
+    cursor: pointer;
+}
+
+.writing-item[open] > summary {
+    font-weight: 600;
+}
+
+/* fanfiction only */
+
+.fanfiction-item > summary {
+    list-style: none;
+}
+
+.fanfiction-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+.fanfiction-item > summary::before {
+    content: "* "
+}
+
+.fanfiction-item > summary::after {
+    content: " see details";
+    color: gray;
+    cursor: pointer;
+}
+
+.fanfiction-item[open] > summary {
+    font-weight: 600;
+}
+
 .fandom {
     font-weight: 800;
 }
@@ -178,7 +249,26 @@ hr {
     font-style: italic;
 }
 
-.details {
-    padding-left: 4rem;
-    text-indent: -4rem;
+/* media queries */
+
+@media only screen and (max-width: 550px) {
+    .wrapper {
+        height: 90dvh;
+        width: 90vw;
+        top: 0vh;
+        left: 5vw;
+    }
+
+    .wrapper > nav {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .wrapper > .content > h1 {
+        margin-top: 0;
+    }
+
+    .details {
+        padding-left: 0rem;
+        text-indent: 0rem;
+    }
 }
