@@ -139,6 +139,11 @@ hr {
     cursor: pointer;
 }
 
+.tab-link:focus {
+    font-weight: 600;
+    border-width: 3px;
+}
+
 .tab-link:hover {
     font-weight: 600;
 }
@@ -278,6 +283,11 @@ hr {
     color: gray;
     font-style: italic;
     text-decoration: none;
+}
+
+.ao3-link > a:focus {
+    font-weight: 600;
+    color: white;
 }
 
 /* art tab */
