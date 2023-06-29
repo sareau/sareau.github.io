@@ -1,39 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+/* all */
 
 :root {
-    /* colors */
-    --red: #B50D02;
+    --light_text: hsl(0 0% 0%);
+    --light_bg: hsl(0 0% 90%);
 
-    /* font sizes */
-    --h1: 2rem;
-    --h2: 1.5rem;
-    --h3: 1.2rem;
-    --p: 1rem;
+    --dark_text: hsl(0 0% 90%);
+    --dark_bg: hsl(0 0% 0%);
 
-    /* viewport */
-    --viewport-height: 100dvh;
-    --viewport-width: 100vw;
+    --ff_mono: 'JetBrains Mono', monospace;
+    --ff_sans: 'Inter', sans-serif;
+    --ff_serif: 'Newsreader', serif;
 
-    /* fonts */
-    --inter: 'Inter', sans-serif;
-    --jmono: 'JetBrains Mono', monospace;
+    --fs_100: 1rem;
+    --fs_200: 1.2rem;
+    --fs_300: 1.5rem;
+    --fs_400: 2rem;
 
-    overflow-x: hidden;
+    --fw_100: 250;
+    --fw_100_mono: 200;
+    --fw_200: 400;
+    --fw_300: 575;
 }
 
-::-webkit-scrollbar {width: 0.5vw;}
-::-webkit-scrollbar-track {background: black;}
-::-webkit-scrollbar-thumb {background: lightgray;}
-::-webkit-scrollbar-thumb:hover {background: white;}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html {
+    font-family: var(--ff_mono);
+    font-size: var(--fs_100);
+    font-weight: var(--fw_200);
+}
 
 body {
-    margin: 0;
-    min-height: var(--viewport-height);
-    min-width: var(--viewport-width);
-    font-family: var(--jmono);
-    background-color: black;
-    color: white;
+    background: var(--dark_bg);
+    color: var(--dark_text);
 
     animation: fade_in ease 1s;
     animation-iteration-count: 1;
@@ -50,280 +59,201 @@ body {
 }
 
 .wrapper {
-    height: 80dvh;
-    width: 80vw;
-    position: absolute;
-    top: 10vh;
-    left: 10vw;
-    display: grid;
-    grid-template-rows: 1fr 7fr;
+    width: min(100% - 2rem, 70ch);
+    margin-inline: auto;
+    margin-block: 10dvh;
+    margin-block: 10vh;
 }
 
-.wrapper > nav {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.wrapper > nav a {
-    color: white;
-    text-decoration: none;
-}
-
-.wrapper > nav a h1,h2 {
-    font-weight: 400;
-}
-
-.wrapper > nav a h1 {
-    font-size: var(--h1);
-}
-
-.wrapper > nav a h2 {
-    font-size: var(--h2);
-}
-
-.wrapper > nav > .stuff {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: right;
-}
-
-.wrapper > .color {
-    background-color: var(--red);
-}
-
-.content {
-    padding-bottom: 8vh;
-}
-
-.wrapper > .content h1 {
-    font-weight: 400;
+.title {
+    font-size: var(--fs_400);
+    font-weight: var(--fw_300);
     font-style: italic;
+    margin-bottom: 1rem;
 }
 
-.wrapper > .content ul {
-    list-style-type: none;
-    padding-left: 0;
+/* nav */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 10dvh;
+    height: 10vh;
 }
 
-.wrapper > .content .list-l2 {
-    text-indent: 2rem;
+nav a {
+    font-size: var(--fs_400);
+    font-weight: var(--fw_200);
+    color: var(--dark_text);
+    text-decoration: none;
+    height: fit-content;
 }
 
-.wrapper > .content li > p::before {
+nav a:first-child {
+    font-weight: var(--fw_300);
+}
+
+/* landing color block */
+
+.color {
+    width: 100%;
+    height: 70dvh;
+    height: 70vh;
+    background: var(--dark_text);
+}
+
+/* about */
+
+.about_list,
+.about_link_list {
+    list-style: none;
+}
+
+.about_list.list_level_2 {
+    padding-top: 0.5rem;
+    padding-left: 2.5rem;
+}
+
+.about_list > li {
+    padding-bottom: 0.5rem;
+}
+
+.about_list > li:has(> .about_list.list_level_2) {
+    padding-bottom: 0;
+}
+
+.about_list > li::before {
     content: "* ";
 }
 
-.wrapper > .content > .profiles a {
-    color: white;
+.about_link_list {
+    padding-top: 0.5rem;
+}
+
+.about_link_list > li {
+    display: inline;
+}
+
+.about_link_list > li > a {
+    color: var(--dark_text);
+}
+
+.about_link_list > li:not(:nth-child(1))::before {
+    content: "/ ";
+    text-decoration: none;
 }
 
 hr {
-    margin: 2rem 0;
-}
-
-.padding {
-    height: 5vh;
-}
-
-/* works tabs list / tabs */
-
-.tab-link {
-    font-size: var(--p);
-    font-family: var(--jmono);
-    color: white;
-    background-color: black;
-    border: white solid 1px;
-    border-radius: 0.2rem;
-    padding: 0 0.2rem;
-    cursor: pointer;
-}
-
-.tab-link:hover, .tab-link:focus {
-    font-weight: 600;
-}
-
-.tab-link.active {
-    color: black;
-    background-color: white;
-}
-
-.tab {
-    display: none;
-}
-
-/* writing and fanfiction tabs */
-
-.fanfiction-item, .writing-item {
-    margin-bottom: 1rem;
-    padding: 0;
-}
-
-.fanfiction-item[open], .writing-item[open] {
-    margin-bottom: 2rem;
-}
-
-.read-link {
-    font-weight: 500;
-    font-style: italic;
-    text-decoration: none;
-    color: white;
-}
-
-.read-link::before {
-    content: "-> ";
-    font-weight: 400;
-    font-style: normal;
-}
-
-.read-link:hover, .read-link:focus {
-    font-weight: 800;
-}
-
-.tags, .info-tags {
     margin: 1rem 0;
 }
 
-.tags li {
+/* works */
+
+
+.text_entry_list > li:has(> .text_entry_item[open]) {
+    margin-bottom: 1rem;
+}
+
+li:has(.text_entry_item) {
+    list-style: none;
+}
+
+.text_entry_item[open] > summary > p.text_entry_title {
+    font-weight: var(--fw_300);
+    text-decoration: underline;
+}
+
+summary::before {
+    content: "* ";
+}
+
+summary {
+    list-style: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary > p {
+    display: inline;
+}
+
+.entry_date, .text_entry_words {
+    padding-bottom: 1rem;
     display: inline-block;
-    border: white solid 1px;
-    border-radius: 0.2rem;
-    padding: 0 0.2rem;
+}
+
+.entry_date::after {
+    content: ">- -<";
+}
+
+.text_entry_words::after {
+    content: " words"
 }
 
 .tag {
-    font-weight: 200
-}
-
-.info-tags li {
-    color: gray;
     display: inline-block;
-    border: gray solid 1px;
-    border-radius: 0.2rem;
     padding: 0 0.2rem;
+    border: 1px solid var(--dark_text);
+    border-radius: 0.2rem;
+    margin-bottom: 1rem;
 }
 
-.words::before {
-    content: "words: "
+.tag > p {
+    padding-bottom: 1rem;
 }
 
-.details {
-    padding-left: 4rem;
-    text-indent: -4rem;
+.content_warning::before {
+    content: "content warnings";
+    display: block;
+    font-weight: var(--fw_300);
+    text-decoration: underline;
+    padding-bottom: 0.5rem;
 }
 
-.work-details-date {
-    color: gray;
-    text-indent: 4rem;
+.content_warning {
+    margin-bottom: 1rem;
+    border: 2px dashed var(--dark_text);
+    padding: 1rem;
 }
 
-/* writing tab only */
-
-.writing-item > summary {
+.content_warning > ul {
+    padding-top: 0.5rem;
+    padding-left: 0;
     list-style: none;
 }
 
-.writing-item > summary::-webkit-details-marker {
-    display: none;
+.content_warning > ul > li::before {
+    content: "* ";
 }
 
-.writing-item > summary::before {
-    content: "* "
+p:has(> .read_link) {
+    padding-bottom: 1rem;
 }
 
-.writing-item > summary::after {
-    content: " see details";
-    color: gray;
-    cursor: pointer;
+p:has(> .read_link)::before {
+    content: "--> ";
 }
 
-.writing-item[open] > summary {
-    font-weight: 600;
+.read_link {
+    color: var(--dark_text);
+    font-weight: var(--fw_300)
 }
 
-/* fanfiction tab only */
-
-.fanfiction-item > summary {
-    list-style: none;
+.synopsis {
+    padding-bottom: 1rem;
 }
 
-.fanfiction-item > summary::-webkit-details-marker {
-    display: none;
-}
-
-.fanfiction-item > summary::before {
-    content: "* "
-}
-
-.fanfiction-item > summary::after {
-    content: " see details";
-    color: gray;
-    cursor: pointer;
-}
-
-.fanfiction-item[open] > summary {
-    font-weight: 600;
-}
-
-.fandom {
-    font-weight: 800;
-}
-
-.relationship {
-    font-weight: 500;
-    font-style: italic;
-}
-
-.ao3-link > a {
-    color: gray;
-    font-style: italic;
-    text-decoration: none;
-}
-
-.ao3-link > a:focus {
-    font-weight: 600;
-    color: white;
-}
-
-/* art tab */
-
-.pieces {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-}
-
-.thumbnail {
-    width: 100%;
-    height: 100px;
-    background-color: white;
-}
-
-/* media queries */
-
-@media only screen and (max-width: 550px) {
-    .wrapper {
-        height: 95dvh;
-        width: 90vw;
-        top: 0vh;
-        left: 5vw;
+@media (width > 45rem) {
+    .content_warning > ul {
+        padding-left: 3rem;
     }
 
-    .wrapper > nav {
-        grid-template-columns: 1fr 2fr;
-    }
-
-    .wrapper > .content > h1 {
-        margin-top: 0;
-    }
-
-    .details {
-        padding-left: 0;
-        text-indent: 0;
-    }
-
-    .work-date {
-        text-indent: 0;
+    .synopsis {
+        text-indent: -4rem;
+        padding-left: 4rem;
     }
 }
