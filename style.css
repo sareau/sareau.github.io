@@ -96,13 +96,20 @@ nav a {
     width: var(--basic_width);
     height: 60dvh;
     margin-inline: auto;
+
+    /* generated from csshero mesher */
     background-color:hsla(339,100%,87%,1);
     background-image:
-        radial-gradient(at 10% 86%, hsla(0,100%,71%,1) 0px, transparent 50%),
-        radial-gradient(at 67% 87%, hsla(40,100%,66%,1) 0px, transparent 50%),
-        radial-gradient(at 99% 4%, hsla(189,100%,74%,1) 0px, transparent 50%),
-        radial-gradient(at 96% 59%, hsla(233,100%,79%,1) 0px, transparent 50%),
-        radial-gradient(at 30% 13%, hsla(270,100%,75%,1) 0px, transparent 50%);
+        radial-gradient(at 59% 52%, hsla(162,100%,57%,0.2) 0px, transparent 50%),
+        radial-gradient(at 26% 83%, hsla(350,100%,71%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(350,100%,71%,1) 0px, transparent 50%),
+        radial-gradient(at 96% 48%, hsla(241,100%,79%,0.6) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(40,100%,66%,1) 0px, transparent 50%),
+        radial-gradient(at 73% 72%, hsla(40,100%,66%,1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(200,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 78% 22%, hsla(200,100%,74%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(280,100%,75%,1) 0px, transparent 50%),
+        radial-gradient(at 21% 12%, hsla(280,100%,75%,1) 0px, transparent 50%);
 }
 
 @media (width > 75rem) {
