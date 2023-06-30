@@ -164,7 +164,7 @@ hr {
     font-size: var(--fs_400);
     font-style: italic;
     text-transform: lowercase;
-    margin-bottom: 2rem;
+    margin-block: 2rem;
     scroll-margin-top: 10dvh;
 }
 
@@ -198,4 +198,23 @@ hr {
 
 .link_list li a {
     color: var(--clr_light);
+}
+
+/* work list */
+
+.work_item summary {
+    list-style: none;
+}
+
+.work_item summary::-webkit-details-marker {
+    display: none;
+}
+
+.work_item summary::after {
+    content: "+";
+    float: right;
+}
+
+.work_item details[open] summary::after {
+    content: "-";
 }
