@@ -136,7 +136,7 @@ li > ul {
 
 header {
     width: 100%;
-    height: 10dvh;
+    height: 10svh;
 }
 
 nav {
@@ -154,7 +154,7 @@ nav a {
 
 .color {
     width: 100%;
-    height: 60dvh;
+    height: 60svh;
     margin-inline: auto;
 
     /* generated from csshero mesher */
@@ -176,10 +176,10 @@ nav a {
 
 .welcome {
     width: 100%;
-    height: 10dvh;
+    height: 10svh;
     display: flex;
     align-items: end;
-    margin-bottom: 10dvh;
+    margin-bottom: 10svh;
 }
 
 .welcome p {
