@@ -235,10 +235,29 @@ nav a {
     color: var(--clr_light);
 }
 
+/* works */
+
+.title {
+    font-size: var(--fs_400);
+    margin-bottom: 1rem;
+}
+
 /* work list */
+
+.work_item {
+    margin-bottom: 1rem;
+}
+
+.work_item p {
+    margin-bottom: 1rem;
+}
 
 .work_item summary {
     list-style: none;
+}
+
+.work_item details[open] summary {
+    margin-bottom: 1rem;
 }
 
 .work_item summary::-webkit-details-marker {
@@ -252,4 +271,51 @@ nav a {
 
 .work_item details[open] summary::after {
     content: "-";
+}
+
+.content_warning {
+    padding: 1rem;
+    background-color: hsla(0, 0%, 90%, 0.25);
+    border: 2px dashed var(--clr_light);
+    margin-bottom: 1rem;
+}
+
+.content_warning .warning_title {
+    font-weight: var(--fw_300);
+    text-transform: lowercase;
+}
+
+.content_warning .warning_text {
+    text-transform: lowercase;
+}
+
+.content_warning .warning_list {
+    padding-left: 2ch;
+}
+
+.tag_list {
+    margin-bottom: 1rem;
+}
+
+.tag_list li {
+    display: inline-block;
+    padding-inline: 0.2rem;
+    border: 1px solid var(--clr_light);
+    border-radius: 0.2rem;
+}
+
+p:has(>.read_link)::before {
+    content: "-> ";
+}
+
+.read_link {
+    color: var(--clr_light);
+}
+
+.information::before {
+    content: "~~ ";
+}
+
+.information time {
+    text-transform: lowercase;
 }
