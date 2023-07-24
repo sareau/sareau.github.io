@@ -110,7 +110,7 @@ p, h1, h2, h3, h4, h5, h6 {
     line-height: 1.5;
 }
 
-.container_text :not(:last-child) {
+.container_text > :not(:first-child) {
     margin-block-start: var(--dm_spacing_300);
 }
 
@@ -237,4 +237,27 @@ a {
     .list_grid {
         --_grid_columns: 2;
     }
+}
+
+/* objects in works */
+
+.container_object {
+    border: 1px solid var(--clr_n000);
+    border-radius: var(--dm_spacing_050);
+    padding: var(--dm_spacing_075);
+}
+
+.container_object object {
+    display: block;
+    width: 100%;
+    height: 12rem;
+    border-radius: calc(var(--dm_spacing_050) / 2);
+}
+
+.container_object :not(:last-child) {
+    margin-block-end: var(--dm_spacing_050);
+}
+
+.container_object .link_button {
+    border-radius: calc(var(--dm_spacing_050) / 2);
 }
