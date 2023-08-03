@@ -143,7 +143,6 @@ header:has(.primary_navigation) {
 }
 
 .logo {
-    width: min(80ch, 100%);
     height: fit-content;
 }
 
