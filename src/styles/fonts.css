@@ -1,0 +1,10 @@
+/* geist mono */
+
+@font-face {
+    font-family: "Geist Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/GeistMono-Regular.woff2") format("woff2"),
+         url("/fonts/GeistMono-Regular.woff") format("woff");
+}

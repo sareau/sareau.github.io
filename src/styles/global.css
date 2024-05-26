@@ -1,0 +1,17 @@
+@import url('./fonts.css');
+
+:root {
+    --font-size: 1rem;
+    --line-height1: 1;
+    --line-height2: 1.5;
+    --color-foreground: hsl(0 0% 0%);
+    --color-background: hsl(0 0% 100%);
+    --spacer1: var(--font-size);
+    --spacer2: calc(var(--font-size) * 3);
+    --spacer3: calc(var(--font-size) * 5);
+    --spacer4: calc(var(--font-size) * 10);
+}
+
+:root {
+    font-family: 'Geist Mono', monospace;
+}

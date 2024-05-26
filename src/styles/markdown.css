@@ -1,0 +1,48 @@
+@import url('./global.css');
+
+.markdown {
+    font-size: var(--font-size);
+    line-height: var(--line-height2);
+}
+.markdown p {
+    margin: var(--spacer1) 0;
+    text-align: justify;
+}
+.markdown em {
+    font-style: italic;
+}
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
+    font-weight: bold;
+}
+.markdown h2 {
+    text-indent: 2ch;
+}
+.markdown h3 {
+    text-indent: 4ch;
+}
+.markdown h4 {
+    text-indent: 6ch;
+}
+.markdown a {
+    color: var(--clr-text);
+    text-decoration: underline;
+}
+.markdown a:hover { text-decoration-style: double; }
+.markdown hr {
+    background: none;
+    border: 0;
+    margin: var(--spacer1) 0;
+    padding: 0;
+}
+.markdown hr::after {
+    content: '\EE71\EE71\EE71';
+    display: block;
+}
+.markdown b, .markdown strong { font-weight: bold; }
+.markdown ul, .markdown ol {
+    margin: var(--spacer1) 0;
+    padding: 0 0 0 2ch; 
+}
+.markdown ul li + li, .markdown ol li + li {
+    margin-top: var(--spacer1);
+}

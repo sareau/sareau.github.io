@@ -1,0 +1,85 @@
+---
+import '../styles/reset.css';
+import '../styles/global.css';
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="sareau" description="my tiny, little, miniscule, putrid, personal website.">
+	<Header heading="h1" />
+	<main>
+		<div class="side">
+			<section>
+				<h2>STATUS</h2>
+				<div id="statuscafe">
+					<div id="statuscafe-username"></div>
+					<div id="statuscafe-content"></div>
+				</div>
+				<script src="https://status.cafe/current-status.js?name=sareau" defer is:inline></script>
+			</section>
+			<section>
+				<h2>LISTENING</h2>
+				<p class="song"></p>
+				<p class="artist"></p>
+			</section>
+			<section>
+				<h2>WEBRINGS</h2>
+				<p>to be added.</p>
+			</section>
+			<section>
+				<h2>LINK ME</h2>
+				<p>add my button if you want.</p>
+				<div class="button-container">
+					<img src="/button.png" alt="my button.">
+					<textarea readonly onclick="this.setSelectionRange(0, this.value.length)">
+						<a href="https://sareau.neocities.org">
+							<img src="" alt="">
+						</a>
+					</textarea>
+				</div>
+			</section>
+		</div>
+		<div class="main"></div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin-top: calc(var(--spacer4) - calc(var(--spacer1) * 2));
+		margin-bottom: calc(var(--spacer4) - var(--spacer1));
+		padding: var(--spacer1);
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: var(--spacer1);
+	}
+	.side {
+		grid-column: 1 / 3;
+	}
+	.main {
+		grid-column: 3 / -1;
+	}
+	section > * + * {
+		margin-top: var(--spacer1);
+	}
+	section + section {
+		margin-top: var(--spacer3);
+	}
+	#statuscafe-content {
+		margin-top: var(--spacer1);
+	}
+</style>
+
+<script is:inline>
+    let user = 'sareau';
+    let url = 'https://lastfm-last-played.biancarosa.com.br/' + user + '/latest-song';
+    let song = document.querySelector('.song');
+	let artist = document.querySelector('.artist');
+    fetch(url)
+        .then(function (response) {
+            return response.json()
+        }).then(function (json) {
+            song.innerHTML = `<a href='${json['track']['url']}'>${json['track']['name']}</a>`;
+			artist.innerHTML = `by ${json['track']['artist']['#text']}`;
+        });
+</script>
