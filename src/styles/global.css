@@ -15,3 +15,14 @@
 :root {
     font-family: 'Geist Mono', monospace;
 }
+
+body {
+    width: min(160ch, 100%);
+    margin: 0 auto;
+}
+
+@media (width < 40rem) {
+    :root {
+        font-size: 80%;
+    }
+}

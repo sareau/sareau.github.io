@@ -1,0 +1,92 @@
+---
+import '../styles/reset.css';
+import '../styles/global.css';
+import '../styles/markdown.css';
+
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={frontmatter.description} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@sareaus" />
+		<meta name="twitter:title" content={frontmatter.title} />
+		<meta name="twitter:description" content={frontmatter.description} />
+		<meta name="twitter:image" content="/card-image.png" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={frontmatter.title} />
+		<meta property="og:description" content={frontmatter.description} />
+		<meta property="og:image" content="/card-image.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+		<link rel="shortcut icon" href="/favicons/favicon.ico" />
+		<title>{frontmatter.title}</title>
+	</head>
+	<body>
+        <header>
+            <p class="home"><a href="/">SAREAU or SARA[H]</a></p>
+            <p class="back"><a href={`/${frontmatter.type}/`}>{frontmatter.type}</a></p>
+        </header>
+        <main>
+            <section class="meta">
+                <h1>{frontmatter.title}</h1>
+                <p>PUBLISHED {frontmatter.datePublish.slice(0, 10)}</p>
+                <p>EDITED {frontmatter.dateEdit.slice(0, 10)}</p>
+                {frontmatter.type == "works" && <p>CATEGORY: {frontmatter.category}</p>}
+            </section>
+            <div class="markdown">
+                <slot />
+            </div>
+        </main>
+	</body>
+</html>
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--spacer1);
+        padding: var(--spacer1);
+        position: sticky;
+        background-color: var(--color-background);
+    }
+    .home a {
+        text-decoration: none;
+    }
+    .back {
+        text-align: right;
+    }
+    .back a {
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .back a::after {
+        content: " \2197";
+    }
+    main {
+        margin-bottom: var(--spacer4);
+    }
+    .meta {
+		margin-top: calc(var(--spacer4) - var(--spacer1));
+        margin-bottom: var(--spacer4);
+        text-align: left;
+        padding: 0 var(--spacer1);
+        text-transform: uppercase;
+    }
+    .meta > * + * {
+        margin-top: var(--spacer1);
+    }
+    h1 {
+        font-weight: bold;
+    }
+    .markdown {
+        padding: 0 var(--spacer1);
+        text-align: justify;
+    }
+</style>

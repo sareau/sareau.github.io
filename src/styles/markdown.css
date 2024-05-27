@@ -3,9 +3,14 @@
 .markdown {
     font-size: var(--font-size);
     line-height: var(--line-height2);
+    --markdown-spacer: calc(var(--font-size) * var(--line-height2));
+}
+
+.markdown :first-child {
+    margin-top: 0;
 }
 .markdown p {
-    margin: var(--spacer1) 0;
+    margin: var(--markdown-spacer) 0;
     text-align: justify;
 }
 .markdown em {
@@ -31,7 +36,7 @@
 .markdown hr {
     background: none;
     border: 0;
-    margin: var(--spacer1) 0;
+    margin: var(--markdown-spacer) 0;
     padding: 0;
 }
 .markdown hr::after {
@@ -40,9 +45,9 @@
 }
 .markdown b, .markdown strong { font-weight: bold; }
 .markdown ul, .markdown ol {
-    margin: var(--spacer1) 0;
+    margin: var(--markdown-spacer) 0;
     padding: 0 0 0 2ch; 
 }
 .markdown ul li + li, .markdown ol li + li {
-    margin-top: var(--spacer1);
+    margin-top: var(--markdown-spacer);
 }

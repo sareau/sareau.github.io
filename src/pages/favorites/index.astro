@@ -1,0 +1,88 @@
+---
+import '../../styles/reset.css';
+import '../../styles/global.css';
+
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Logo from '../../components/Logo.astro';
+
+import json from './_favorites.json';
+---
+
+<Layout title="sareau::favorites" description="a collection of all my favorite pieces of media.">
+    <Logo />
+    <Header heading="h2" />
+    <main>
+        <section>
+            <h1>FAVORITES</h1>
+            <p>Here are my favorite pieces of media in no particular order. I think they're all great, so if you want to check them out, please do so. I promise they'll be worth your time.</p>
+        </section>
+        <section>
+            <h2>ALBUMS</h2>
+            <ul class="favorites">
+                {json.albums.map((album) =>
+                    <li>
+                        <a href={album.link}>
+                            <img src={album.image} alt={`${album.title} by ${album.artist}`} title={`${album.title} by ${album.artist}`} loading="lazy" />
+                        </a>
+                    </li>
+                )}
+            </ul>
+        </section>
+        <section>
+            <h2>ANIME</h2>
+            <ul class="favorites">
+                {json.anime.map((anime) =>
+                    <li>
+                        <a href={anime.link}>
+                            <img src={anime.image} alt={anime.title} title={anime.title} loading="lazy" />
+                        </a>
+                    </li>
+                )}
+            </ul>
+        </section>
+        <section>
+            <h2>MANGA</h2>
+            <ul class="favorites">
+                {json.manga.map((manga) =>
+                    <li>
+                        <a href={manga.link}>
+                            <img src={manga.image} alt={manga.title} title={manga.title} loading="lazy" />
+                        </a>
+                    </li>
+                )}
+            </ul>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    h1, h2 {
+        font-weight: bold;
+    }
+    main {
+        margin-top: calc(var(--spacer4) - calc(var(--spacer1) * 2));
+		margin-bottom: calc(var(--spacer4) - var(--spacer1));
+		padding: var(--spacer1);
+    }
+    section + section {
+        margin-top: var(--spacer3);
+    }
+    section > * + * {
+        margin-top: var(--spacer1);
+    }
+    section p {
+        text-align: justify;
+    }
+    .favorites {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: var(--spacer1);
+    }
+    @media (width < 40rem) {
+        .favorites {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>

@@ -1,0 +1,147 @@
+{
+    "albums": [
+        {
+            "title": "Census Designateed",
+            "artist": "Jane Remover",
+            "image": "/favorites/census-designated.jpeg",
+            "link": "https://rateyourmusic.com/release/album/jane-remover/census-designated/"
+        },
+        {
+            "title": "By the Time I Get to Phoenix",
+            "artist": "Injury Reserve",
+            "image": "/favorites/by-the-time-i-get-to-phoenix.jpeg",
+            "link": "https://rateyourmusic.com/release/album/injury-reserve/by-the-time-i-get-to-phoenix/"
+        },
+        {
+            "title": "I Didn't Mean to Haunt You",
+            "artist": "Quadeca",
+            "image": "/favorites/i-didnt-mean-to-haunt-you.jpeg",
+            "link": "https://rateyourmusic.com/release/album/quadeca/i-didnt-mean-to-haunt-you/"
+        },
+        {
+            "title": "Scaring the Hoes",
+            "artist": "JPEGMAFIA and Danny Brown",
+            "image": "/favorites/scaring-the-hoes.jpeg",
+            "link": "https://rateyourmusic.com/release/album/jpegmafia-x-danny-brown/scaring-the-hoes/"
+        },
+        {
+            "title": "Promises",
+            "artist": "Floating Points, Pharoah Sanders, and The London Symphony Orchestra",
+            "image": "/favorites/promises.png",
+            "link": "https://rateyourmusic.com/release/album/floating-points-pharoah-sanders-and-the-london-symphony-orchestra/promises/"
+        },
+        {
+            "title": "The Origin of My Depression",
+            "artist": "Uboa",
+            "image": "/favorites/the-origin-of-my-depression.png",
+            "link": "https://rateyourmusic.com/release/album/uboa/the-origin-of-my-depression/"
+        },
+        {
+            "title": "Kagayaki",
+            "artist": "Masakatsu Takagi",
+            "image": "/favorites/kagayaki.jpeg",
+            "link": "https://rateyourmusic.com/release/album/%E9%AB%98%E6%9C%A8%E6%AD%A3%E5%8B%9D/kagayaki-1/"
+        },
+        {
+            "title": "Bloom",
+            "artist": "Beach House",
+            "image": "/favorites/bloom.jpeg",
+            "link": "https://rateyourmusic.com/release/album/beach-house/bloom/"
+        },
+        {
+            "title": "F# A# Infinity",
+            "artist": "Godspeed You! Black Emperor",
+            "image": "/favorites/f-a-infinity.png",
+            "link": "https://rateyourmusic.com/release/album/godspeed-you-black-emperor/f%E2%99%AFa%E2%99%AF%E2%88%9E/"
+        },
+        {
+            "title": "Flood",
+            "artist": "Boris",
+            "image": "/favorites/flood.jpeg",
+            "link": "https://rateyourmusic.com/release/album/boris/flood/"
+        },
+        {
+            "title": "Vespertine",
+            "artist": "Björk",
+            "image": "/favorites/vespertine.jpeg",
+            "link": "https://rateyourmusic.com/release/album/bjork/vespertine/"
+        },
+        {
+            "title": "Kalk samen kuri no hana",
+            "artist": "Sheena Ringo",
+            "image": "/favorites/kalk-samen-kuri-no-hana.png",
+            "link": "https://rateyourmusic.com/release/album/%E6%A4%8E%E5%90%8D%E6%9E%97%E6%AA%8E/%E5%8A%A0%E7%88%BE%E5%9F%BA-%E7%B2%BE%E6%B6%B2-%E6%A0%97%E3%83%8E%E8%8A%B1-kalk-samen-kuri-no-hana/"
+        },
+        {
+            "title": "Deathconsciousness",
+            "artist": "Have a Nice Life",
+            "image": "/favorites/deathconsciousness.webp",
+            "link": "https://rateyourmusic.com/release/album/have-a-nice-life/deathconsciousness/"
+        },
+        {
+            "title": "Dawn",
+            "artist": "Mount Eerie",
+            "image": "/favorites/dawn.jpeg",
+            "link": "https://rateyourmusic.com/release/album/mount-eerie/dawn-winter-journal-1/"
+        }
+    ],
+    "anime": [
+        {
+            "title": "Bocchi the Rock!",
+            "image": "/favorites/bocchi-the-rock-anime.jpg",
+            "link": "https://myanimelist.net/anime/47917/Bocchi_the_Rock"
+        },
+        {
+            "title": "I'm in Love with the Villainess",
+            "image": "/favorites/im-in-love-with-the-villainess-anime.jpg",
+            "link": "https://myanimelist.net/anime/53833/Watashi_no_Oshi_wa_Akuyaku_Reijou"
+        },
+        {
+            "title": "Mobile Suit Gundam: The Witch from Mercury",
+            "image": "/favorites/mobile-suit-gundam-the-witch-from-mercury.webp",
+            "link": "https://myanimelist.net/anime/49828/Kidou_Senshi_Gundam__Suisei_no_Majo"
+        }
+    ],
+    "manga": [
+        {
+            "title": "That Time I Was Blackmailed By the Class's Green Tea Bitch",
+            "image": "/favorites/that-time-i-was-blackmailed-by-the-classs-green-tea-bitch.jpg",
+            "link": "https://mangadex.org/title/73965527-b393-4f65-9bc3-2439ec44935a/that-time-i-was-blackmailed-by-the-class-s-green-tea-bitch"
+        },
+        {
+            "title": "If It Rains Next Week",
+            "image": "/favorites/if-it-rains-next-week.png",
+            "link": "https://mangadex.org/title/ec2fbac7-e0c2-4b2a-adbc-bd79ca6ed37f/if-it-rains-next-week"
+        },
+        {
+            "title": "The Summer You Were There",
+            "image": "/favorites/the-summer-you-were-there.png",
+            "link": "https://mangadex.org/title/6ecc62e4-25ad-4102-b0d8-580a8023d2fb/kimi-to-tsuzuru-utakata"
+        },
+        {
+            "title": "Ring My Bell!",
+            "image": "/favorites/ring-my-bell.jpeg",
+            "link": "https://bato.to/series/91317/ring-my-bell-official"
+        },
+        {
+            "title": "The Guy She Was Interested in Wasn't a Guy at All",
+            "image": "/favorites/the-guy-she-was-interested-in-wasnt-a-guy-at-all.jpg",
+            "link": "https://mangadex.org/title/9d3d3403-1a87-4737-9803-bc3d99db1424/the-guy-she-was-interested-in-wasn-t-a-guy-at-all"
+        },
+        {
+            "title": "Bocchi the Rock!",
+            "image": "/favorites/bocchi-the-rock-manga.jpg",
+            "link": "https://mangadex.org/title/2e0fdb3b-632c-4f8f-a311-5b56952db647/bocchi-the-rock"
+        },
+        {
+            "title": "The Moon on a Rainy Night",
+            "image": "/favorites/the-moon-on-a-rainy-night.jpg",
+            "link": "https://mangadex.org/title/c8a0426d-539b-4f6a-9537-fbccf4962529/the-moon-on-a-rainy-night"
+        },
+        {
+            "title": "I'm in Love with the Villainess",
+            "image": "/favorites/im-in-love-with-the-villainess-manga.jpg",
+            "link": "https://mangadex.org/title/22d6d048-9f9f-4c3a-95c2-3b145f110e20/i-m-in-love-with-the-villainess"
+        }
+    ]
+}

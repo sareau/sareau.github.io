@@ -1,0 +1,60 @@
+---
+import '../../styles/reset.css';
+import '../../styles/global.css';
+
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Logo from '../../components/Logo.astro';
+
+const works = await Astro.glob('./*.md');
+works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+---
+
+<Layout title="sareau::works" description="a dedicated page to the index of all my works and projects.">
+    <Logo />
+    <Header heading="h2" />
+    <main>
+        <section>
+            <h1>WORKS</h1>
+            <ul class="page-list" role="list">
+                {works.map((work) =>
+                    <li>
+                        <p class="page-title"><a href={work.url}>{work.frontmatter.title}</a></p>
+                        <p>{work.frontmatter.datePublish.slice(0, 10)}</p>
+                    </li>
+                )}
+            </ul>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    h1 {
+        font-weight: bold;
+    }
+    main {
+        margin-top: calc(var(--spacer4) - calc(var(--spacer1) * 2));
+		margin-bottom: calc(var(--spacer4) - var(--spacer1));
+		padding: var(--spacer1);
+    }
+    section > * + * {
+        margin-top: var(--spacer1);
+    }
+	.page-list {
+		list-style: none;
+	}
+	.page-list li {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: var(--spacer1);
+	}
+	.page-list li + li {
+		margin-top: var(--spacer1);
+	}
+	.page-list li .page-title {
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>

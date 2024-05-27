@@ -4,9 +4,21 @@ import '../styles/global.css';
 
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Logo from '../components/Logo.astro';
+
+import json from './favorites/_favorites.json';
+
+const posts = await Astro.glob('./blog/*.md');
+const reviews = await Astro.glob('./reviews/*.md');
+const works = await Astro.glob('./works/*.md');
+
+posts.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+reviews.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 ---
 
 <Layout title="sareau" description="my tiny, little, miniscule, putrid, personal website.">
+	<Logo />
 	<Header heading="h1" />
 	<main>
 		<div class="side">
@@ -25,26 +37,103 @@ import Header from '../components/Header.astro';
 			</section>
 			<section>
 				<h2>WEBRINGS</h2>
-				<p>to be added.</p>
+				<p>To be added.</p>
 			</section>
 			<section>
 				<h2>LINK ME</h2>
-				<p>add my button if you want.</p>
+				<p>Button linking under construction.</p>
 				<div class="button-container">
-					<img src="/button.png" alt="my button.">
-					<textarea readonly onclick="this.setSelectionRange(0, this.value.length)">
-						<a href="https://sareau.neocities.org">
-							<img src="" alt="">
-						</a>
-					</textarea>
+					<img src="/button.png" alt="my button." loading="lazy" />
+					<textarea readonly onclick="this.setSelectionRange(0, this.value.length)"><a href="https://sareau.neocities.org"><img src="" alt="my button."/>source not yet added</a></textarea>
 				</div>
 			</section>
 		</div>
-		<div class="main"></div>
+		<div class="main">
+			<section>
+				<h2>WELCOME</h2>
+				<p>Welcome to this shoddily-coded website that I made. (What a wonderful world the modern web is.) Anyway, there isn't much here, but I hope you enjoy the pieces of myself that I'm comfortable with sharing to the world.</p>
+			</section>
+			<section>
+				<h2>ABOUT</h2>
+				<p>I'm Sarah (the "h" in Sarah is optional, I don't mind). I'm a high school student interested in computer science, coding, web development, and design. This website is just a place where I can share my interests and (sometimes) ramble about whatever has taken over my mind for a period of time.</p>
+				<p>If you need to contact me, please don't. You can also find me on these platforms:</p>
+				<ul class="profiles">
+					<li><a href="https://twitter.com/sareaus" rel="me">Twitter</a></li>
+					<li><a href="https://bsky.app/profile/sareau.bsky.social" rel="me">Bluesky</a></li>
+					<li><a href="https://cohost.org/sareau" rel="me">Cohost</a></li>
+					<li><a href="https://www.instagram.com/r.sareau/" rel="me">Instagram</a></li>
+					<li><a href="https://www.last.fm/user/sareau" rel="me">Last.fm</a></li>
+					<li><a href="https://rateyourmusic.com/~sareau" rel="me">Rate Your Music</a></li>
+					<li><a href="https://bandcamp.com/sareau" rel="me">Bandcamp</a></li>
+					<li><a href="https://www.discogs.com/user/sareau" rel="me">Discogs</a></li>
+					<li><a href="https://musescore.com/user/49324478" rel="me">MuseScore</a></li>
+				</ul>
+				<p>I really only put my Bluesky and Cohost here to say that I am those accounts; I'm not really active on them, so just go to my Twitter if you actually want to see any signs of life</p>
+			</section>
+			<section>
+				<h2 class="outlink"><a href="/blog/">BLOG</a></h2>
+				<p>Here are all of my blog posts, sharing whatever strong thoughts I have in the moment. Don't expect a new Marx or whoever out of me, yeah?</p>
+				<ul class="page-list" role="list">
+					{posts.map((post) =>
+						<li>
+							<p class="page-title"><a href={post.url}>{post.frontmatter.title}</a></p>
+							<p>{post.frontmatter.datePublish.slice(0, 10)}</p>
+						</li>
+					)}
+				</ul>
+			</section>
+			<section>
+				<h2>INTERESTS</h2>
+				<p>My biggest interest is probably music, both as a musician and as a music listener. I'm open to and love a lot of that weird, out-there, avant-garde music, the type of stuff that could cryogenically freeze a sickly Victorian child, but I'm not completely in the deep end. A lot of my favorites are very accessible and really just beautiful albums. As for my own playing, I love the ability to express yourself through music, something that can be so ethereal, charming, and gorgeous but also harsh, noisy, and aberrant. Personally, I play piano and guitar, and I really love both instruments. I've played piano for far longer, but recently, picking up guitar has kept me extremely captivated. (Probably because a lot of the music I listen to is based around guitars.)</p>
+				<p>Aside from music, my next biggest interest is probably coding (or computer science or whatever). There's just something very satisfying and satiating about developing something that can solve some problem, complete some task, show something that is worth showing. There's so much computational power in our hands nowadays, and to me, it's just a thrill to utilize that. Right now, I've only learned HTML, CSS, Python, and some JavaScript, but I'm hoping to learn more technologies in the future. I've currenlty been eyeing some lower-level languages like C++, Go, and Rust, but I know my ambitions still have time to settle in.</p>
+				<p>I've also come to love a lot of anime, manga, manhua, etc. over the years. I've become a big fan of yuri and other sapphic content, and maybe I'll explore my reasoning later, but I'll just leave this here for now. Due to my own habits, I don't actually watch a lot of anime simply because of the time it takes, but I still love some (even though I read so much more manga).</p>
+				<p>You can take a look at some of my favorites and reviews below. It's not everything I've ever enjoyed, but it's a lot of them. I don't have many reviews as of now, but I hope to write more in the future.</p>
+			</section>
+			<section>
+				<h2 class="outlink"><a href="/favorites/">FAVORITES</a></h2>
+				<p>I've got a lot of favorite pieces of media and not enough time to add them all to this website. You can visit the full page above or look at some of my favorite albums below (just a part of the list). They're in no particular order; I think they're all worthy of anyone's time.</p>
+				<ul class="favorites">
+					{json.albums.slice(0, 9).map((album) =>
+						<li>
+							<a href={album.link}>
+								<img src={album.image} alt={`${album.title} by ${album.artist}`} title={`${album.title} by ${album.artist}`} loading="lazy" />
+							</a>
+						</li>
+					)}
+				</ul>
+			</section>
+			<section>
+				<h2 class="outlink"><a href="/reviews/">REVIEWS</a></h2>
+				<p>Here are my reviews; I'll never post any to a site dedicated to that type of thing, but if you're on this site and still reading then you're at least somewhat interested in my thoughts, so here they are.</p>
+				<ul class="page-list" role="list">
+					{reviews.map((review) =>
+						<li>
+							<p class="page-title"><a href={review.url}>{review.frontmatter.title}</a></p>
+							<p>{review.frontmatter.datePublish.slice(0, 10)}</p>
+						</li>
+					)}
+				</ul>
+			</section>
+			<section>
+				<h2 class="outlink"><a href="/works/">WORKS</a></h2>
+				<p>These are some of the things I've made or have worked on that I want to point out. Right now, they're just some pieces of sheet music that I've made, but hopefully I'll eventually do some other things that deserve to be here.</p>
+				<ul class="page-list" role="list">
+					{works.map((work) =>
+						<li>
+							<p class="page-title"><a href={work.url}>{work.frontmatter.title}</a></p>
+							<p>{work.frontmatter.datePublish.slice(0, 10)}</p>
+						</li>
+					)}
+				</ul>
+			</section>
+		</div>
 	</main>
 </Layout>
 
 <style>
+	h2 {
+		font-weight: bold;
+	}
 	main {
 		margin-top: calc(var(--spacer4) - calc(var(--spacer1) * 2));
 		margin-bottom: calc(var(--spacer4) - var(--spacer1));
@@ -65,8 +154,75 @@ import Header from '../components/Header.astro';
 	section + section {
 		margin-top: var(--spacer3);
 	}
+	.main section p {
+		text-align: justify;
+	}
+	.profiles {
+		list-style-position: inside;
+	}
+	.profiles li + li {
+		margin-top: var(--spacer1);
+	}
 	#statuscafe-content {
 		margin-top: var(--spacer1);
+	}
+	.button-container {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--spacer1);
+	}
+	.button-container textarea {
+		border: 0;
+		background-color: var(--color-foreground);
+		color: var(--color-background);
+		resize: none;
+		font-size: 50%;
+	}
+	.outlink a {
+		text-decoration: none;
+	}
+	.outlink a::after {
+		content: " \2197";
+	}
+	.page-list {
+		list-style: none;
+	}
+	.page-list li {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: var(--spacer1);
+	}
+	.page-list li + li {
+		margin-top: var(--spacer1);
+	}
+	.page-list li .page-title {
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+    .favorites {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacer1);
+    }
+	.favorites > :last-child {
+		display: none;
+	}
+	@media (width < 32rem) {
+		main {
+			display: block;
+		}
+		.main {
+			margin-top: var(--spacer4);
+		}
+        .favorites {
+            grid-template-columns: repeat(3, 1fr);
+        }
+		.favorites > :last-child {
+			display: initial;
+		}
 	}
 </style>
 
