@@ -32,7 +32,6 @@
     color: var(--clr-text);
     text-decoration: underline;
 }
-.markdown a:hover { text-decoration-style: double; }
 .markdown hr {
     background: none;
     border: 0;

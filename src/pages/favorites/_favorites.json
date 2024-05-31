@@ -83,6 +83,42 @@
             "artist": "Mount Eerie",
             "image": "/favorites/dawn.jpeg",
             "link": "https://rateyourmusic.com/release/album/mount-eerie/dawn-winter-journal-1/"
+        },
+        {
+            "title": "Lives Outgrown",
+            "artist": "Beth Gibbons",
+            "image": "/favorites/lives-outgrown.png",
+            "link": "https://rateyourmusic.com/release/album/beth-gibbons/lives-outgrown/"
+        },
+        {
+            "title": "Through the Sloe",
+            "artist": "Through the Sloe",
+            "image": "/favorites/through-the-sloe.jpeg",
+            "link": "https://rateyourmusic.com/release/album/through-the-sloe/through-the-sloe/"
+        },
+        {
+            "title": "In the Aeroplane Over the Sea",
+            "artist": "Neutral Milk Hotel",
+            "image": "/favorites/in-the-aeroplane-over-the-sea.jpeg",
+            "link": "https://rateyourmusic.com/release/album/neutral-milk-hotel/in-the-aeroplane-over-the-sea/"
+        },
+        {
+            "title": "Prater",
+            "artist": "Kanazu Tomoyuki",
+            "image": "/favorites/prater.jpeg",
+            "link": "https://rateyourmusic.com/release/album/kanazu-tomoyuki/prater/"
+        },
+        {
+            "title": "Music for 18 Musicians",
+            "artist": "Steve Reich",
+            "image": "/favorites/music-for-18-musicians.jpeg",
+            "link": "https://rateyourmusic.com/release/album/steve-reich-and-musicians/music-for-18-musicians-2/"
+        },
+        {
+            "title": "Two Star & the Dream Police",
+            "artist": "Mk.gee",
+            "image": "/favorites/two-star-and-the-dream-police.jpeg",
+            "link": "https://rateyourmusic.com/release/album/mk_gee/two-star-and-the-dream-police/"
         }
     ],
     "anime": [
@@ -142,6 +178,11 @@
             "title": "I'm in Love with the Villainess",
             "image": "/favorites/im-in-love-with-the-villainess-manga.jpg",
             "link": "https://mangadex.org/title/22d6d048-9f9f-4c3a-95c2-3b145f110e20/i-m-in-love-with-the-villainess"
+        },
+        {
+            "title": "How Do We Relationship?",
+            "image": "/favorites/how-do-we-relationship.jpg",
+            "link": "https://bato.to/series/81368/how-do-we-relationship-official"
         }
     ]
 }

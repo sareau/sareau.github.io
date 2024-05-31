@@ -21,6 +21,19 @@ body {
     margin: 0 auto;
 }
 
+a {
+    letter-spacing: normal;
+    --transition-time: 0.2s;
+    -webkit-transition: all var(--transition-time) ease;
+    -moz-transition: all var(--transition-time) ease;
+    -o-transition: all var(--transition-time) ease;
+    transition: all var(--transition-time) ease; 
+}
+
+a:hover {
+    letter-spacing: 0.125em;
+}
+
 @media (width < 40rem) {
     :root {
         font-size: 80%;

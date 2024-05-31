@@ -40,6 +40,16 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 				<p>To be added.</p>
 			</section>
 			<section>
+				<h2>OTHERS</h2>
+				<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" class="neighbors">
+					<a href="https://melankorin.net/"><img src="https://melankorin.net/assets/img/buttons/button-1.gif" loading="lazy" /></a>
+					<a href="https://remblanc.nekoweb.org"><img src="https://remblanc.nekoweb.org/images/button.png" alt="remblanc" title="this quirk of my button link is not very likely to reach many of its users at this point" loading="lazy" /></a>
+					<a href="https://dimden.dev/"><img src="https://dimden.dev/services/images/88x31.gif" loading="lazy" /></a>
+					<a href="https://maia.crimew.gay"><img src="/buttons/maia.crimew.gay.png" loading="lazy" /></a>
+					<a href="https://frajola.neocities.org/"><img src="https://frajola.neocities.org/images/frajola.gif" alt="frajola" loading="lazy" /></a>
+				</marquee>
+			</section>
+			<section>
 				<h2>LINK ME</h2>
 				<p>Add my button if you want. (Hotlinking is cool.)</p>
 				<div class="button-container">
@@ -128,6 +138,19 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 			</section>
 		</div>
 	</main>
+	<script defer is:inline>
+		let user = 'sareau';
+		let url = 'https://lastfm-last-played.biancarosa.com.br/' + user + '/latest-song';
+		let song = document.querySelector('.song');
+		let artist = document.querySelector('.artist');
+		fetch(url)
+			.then(function (response) {
+				return response.json()
+			}).then(function (json) {
+				song.innerHTML = `<a href='${json['track']['url']}'>${json['track']['name']}</a>`;
+				artist.innerHTML = `by ${json['track']['artist']['#text']}`;
+			});
+	</script>
 </Layout>
 
 <style>
@@ -210,6 +233,13 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 	.favorites > :last-child {
 		display: none;
 	}
+	.neighbors > * {
+		display: inline-block;
+	}
+	.neighbors img {
+		height: 31px;
+		width: 88px;
+	}
 	@media (width < 32rem) {
 		main {
 			display: block;
@@ -225,17 +255,3 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 		}
 	}
 </style>
-
-<script is:inline>
-    let user = 'sareau';
-    let url = 'https://lastfm-last-played.biancarosa.com.br/' + user + '/latest-song';
-    let song = document.querySelector('.song');
-	let artist = document.querySelector('.artist');
-    fetch(url)
-        .then(function (response) {
-            return response.json()
-        }).then(function (json) {
-            song.innerHTML = `<a href='${json['track']['url']}'>${json['track']['name']}</a>`;
-			artist.innerHTML = `by ${json['track']['artist']['#text']}`;
-        });
-</script>
