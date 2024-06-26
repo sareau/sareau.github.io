@@ -22,7 +22,8 @@ body {
 }
 
 a {
-    letter-spacing: normal;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
     --transition-time: 0.2s;
     -webkit-transition: all var(--transition-time) ease;
     -moz-transition: all var(--transition-time) ease;
@@ -31,7 +32,9 @@ a {
 }
 
 a:hover {
-    letter-spacing: 0.125em;
+    /* letter-spacing: 0.125em; */
+    color: var(--color-background);
+    background-color: var(--color-foreground);
 }
 
 @media (width < 40rem) {

@@ -67,20 +67,28 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 			</section>
 			<section>
 				<h2>ABOUT</h2>
-				<p>I'm Sara[h] (she/any). I'm a high school student interested in computer science, coding, web development, and design. This website is just a place where I can share my interests and (sometimes) ramble about whatever has taken over my mind for a period of time.</p>
-				<p>If you need to contact me, please don't. You can also find me on these platforms:</p>
-				<ul class="profiles">
-					<li><a href="https://twitter.com/sareaus" rel="me">Twitter</a></li>
-					<li><a href="https://bsky.app/profile/sareau.bsky.social" rel="me">Bluesky</a></li>
-					<li><a href="https://cohost.org/sareau" rel="me">Cohost</a></li>
-					<li><a href="https://www.instagram.com/r.sareau/" rel="me">Instagram</a></li>
-					<li><a href="https://www.last.fm/user/sareau" rel="me">Last.fm</a></li>
-					<li><a href="https://rateyourmusic.com/~sareau" rel="me">Rate Your Music</a></li>
-					<li><a href="https://bandcamp.com/sareau" rel="me">Bandcamp</a></li>
-					<li><a href="https://www.discogs.com/user/sareau" rel="me">Discogs</a></li>
-					<li><a href="https://musescore.com/user/49324478" rel="me">MuseScore</a></li>
-				</ul>
-				<p>I really only put my Bluesky and Cohost here to say that I am those accounts; I'm not really active on them, so just go to my Twitter if you actually want to see any signs of life</p>
+				<div class="about">
+					<div class="about-content">
+						<p>I'm Sara[h] (she/any). I'm a high school student interested in computer science, coding, web development, and design. This website is just a place where I can share my interests and (sometimes) ramble about whatever has taken over my mind for a period of time.</p>
+						<p>If you need to contact me, please don't. You can also find me on these platforms:</p>
+						<ul class="profiles" role="list">
+							<li><a href="https://twitter.com/sareaus" rel="me">Twitter</a></li>
+							<li><a href="https://bsky.app/profile/sareau.bsky.social" rel="me">Bluesky</a></li>
+							<li><a href="https://cohost.org/sareau" rel="me">Cohost</a></li>
+							<li><a href="https://www.instagram.com/r.sareau/" rel="me">Instagram</a></li>
+							<li><a href="https://www.last.fm/user/sareau" rel="me">Last.fm</a></li>
+							<li><a href="https://rateyourmusic.com/~sareau" rel="me">Rate Your Music</a></li>
+							<li><a href="https://bandcamp.com/sareau" rel="me">Bandcamp</a></li>
+							<li><a href="https://www.discogs.com/user/sareau" rel="me">Discogs</a></li>
+							<li><a href="https://musescore.com/user/49324478" rel="me">MuseScore</a></li>
+						</ul>
+						<p>I really only put my Bluesky and Cohost here to say that I am those accounts; I'm not really active on them, so just go to my Twitter if you actually want to see any signs of life</p>
+					</div>
+					<figure class="about-persona">
+						<img src="/myself.png" alt="a picture of my persona, created by kkiouji.">
+						<figcaption>a persona created for me by <a href="https://kkiouji.neocities.org">kkiouji</a>.</figcaption>
+					</figure>
+				</div>
 			</section>
 			<section>
 				<h2 class="outlink"><a href="/blog/">BLOG</a></h2>
@@ -98,7 +106,7 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 				<h2>INTERESTS</h2>
 				<p>My biggest interest is probably music, both as a musician and as a music listener. I'm open to and love a lot of that weird, out-there, avant-garde music, the type of stuff that could cryogenically freeze a sickly Victorian child, but I'm not completely in the deep end. A lot of my favorites are very accessible and really just beautiful albums. As for my own playing, I love the ability to express yourself through music, something that can be so ethereal, charming, and gorgeous but also harsh, noisy, and aberrant. Personally, I play piano and guitar, and I really love both instruments. I've played piano for far longer, but recently, picking up guitar has kept me extremely captivated. (Probably because a lot of the music I listen to is based around guitars.)</p>
 				<p>Aside from music, my next biggest interest is probably coding (or computer science or whatever). There's just something very satisfying and satiating about developing something that can solve some problem, complete some task, show something that is worth showing. There's so much computational power in our hands nowadays, and to me, it's just a thrill to utilize that. Right now, I've only learned HTML, CSS, Python, and some JavaScript, but I'm hoping to learn more technologies in the future. I've currenlty been eyeing some lower-level languages like C++, Go, and Rust, but I know my ambitions still have time to settle in.</p>
-				<p>I've also come to love a lot of anime, manga, manhua, etc. over the years. I've become a big fan of yuri and other sapphic content, and maybe I'll explore my reasoning later, but I'll just leave this here for now. Due to my own habits, I don't actually watch a lot of anime simply because of the time it takes, but I still love some (even though I read so much more manga).</p>
+				<p>I've also come to love a lot of anime, manga, manhua, etc. over the years. Particularly, I've become a big fan of yuri and other sapphic content. Due to my own habits, I don't actually watch a lot of anime simply because of the time it takes, but I still love some (even though I read so much more manga).</p>
 				<p>You can take a look at some of my favorites and reviews below. It's not everything I've ever enjoyed, but it's a lot of them. I don't have many reviews as of now, but I hope to write more in the future.</p>
 			</section>
 			<section>
@@ -183,7 +191,11 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 		text-align: justify;
 	}
 	.profiles {
-		list-style-position: inside;
+		list-style: none;
+	}
+	.profiles li {
+		border: 1px solid var(--color-foreground);
+		padding: 0.5rem;
 	}
 	.profiles li + li {
 		margin-top: var(--spacer1);
@@ -241,6 +253,35 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 	.neighbors img {
 		height: 31px;
 		width: 88px;
+	}
+	.about {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacer1);
+		align-items: start;
+	}
+	.about-content > * + * {
+		margin-top: var(--spacer1);
+	}
+	.about-persona {
+		border: 1px solid var(--color-foreground);
+	}
+	.about-persona img {
+		max-height: 50vh;
+		margin-inline: auto;
+	}
+	.about-persona figcaption {
+		border-top: 1px solid var(--color-foreground);
+		padding: 0.5rem;
+		text-align: center;
+	}
+	@media (width < 80rem) {
+		.about {
+			display: block;
+		}
+		.about-persona {
+			margin-top: var(--spacer1);
+		}
 	}
 	@media (width < 32rem) {
 		main {
