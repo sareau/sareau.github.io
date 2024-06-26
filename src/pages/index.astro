@@ -266,10 +266,6 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 	.about-persona {
 		border: 1px solid var(--color-foreground);
 	}
-	.about-persona img {
-		max-height: 50vh;
-		margin-inline: auto;
-	}
 	.about-persona figcaption {
 		border-top: 1px solid var(--color-foreground);
 		padding: 0.5rem;
@@ -281,6 +277,10 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 		}
 		.about-persona {
 			margin-top: var(--spacer1);
+		}
+		.about-persona img {
+			max-height: 50vh;
+			margin-inline: auto;
 		}
 	}
 	@media (width < 32rem) {
