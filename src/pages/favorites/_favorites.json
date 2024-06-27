@@ -122,13 +122,13 @@
         },
         {
             "title": "BRAT",
-            "artst": "Charli xcx",
+            "artist": "Charli xcx",
             "image": "/favorites/brat.jpeg",
             "link": "https://rateyourmusic.com/release/album/charli-xcx/brat/"
         },
         {
             "title": "[untitled]",
-            "artst": "samlrc",
+            "artist": "samlrc",
             "image": "/favorites/untitled.jpeg",
             "link": "https://rateyourmusic.com/release/ep/samlrc/_untitled/"
         }
