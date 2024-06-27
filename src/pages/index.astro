@@ -282,6 +282,14 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 			max-height: 50vh;
 			margin-inline: auto;
 		}
+		.profiles {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+		.profiles li + li {
+			margin-top: 0;
+		}
 	}
 	@media (width < 32rem) {
 		main {

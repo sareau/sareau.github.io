@@ -31,7 +31,7 @@ a {
     transition: all var(--transition-time) ease; 
 }
 
-a:hover {
+a:not(:has(img, svg)):hover {
     /* letter-spacing: 0.125em; */
     color: var(--color-background);
     background-color: var(--color-foreground);

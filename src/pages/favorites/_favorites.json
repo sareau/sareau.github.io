@@ -119,6 +119,18 @@
             "artist": "Mk.gee",
             "image": "/favorites/two-star-and-the-dream-police.jpeg",
             "link": "https://rateyourmusic.com/release/album/mk_gee/two-star-and-the-dream-police/"
+        },
+        {
+            "title": "BRAT",
+            "artst": "Charli xcx",
+            "image": "/favorites/brat.jpeg",
+            "link": "https://rateyourmusic.com/release/album/charli-xcx/brat/"
+        },
+        {
+            "title": "[untitled]",
+            "artst": "samlrc",
+            "image": "/favorites/untitled.jpeg",
+            "link": "https://rateyourmusic.com/release/ep/samlrc/_untitled/"
         }
     ],
     "anime": [
@@ -136,6 +148,11 @@
             "title": "Mobile Suit Gundam: The Witch from Mercury",
             "image": "/favorites/mobile-suit-gundam-the-witch-from-mercury.webp",
             "link": "https://myanimelist.net/anime/49828/Kidou_Senshi_Gundam__Suisei_no_Majo"
+        },
+        {
+            "title": "Girls Band Cry",
+            "image": "/favorites/girls-band-cry.jpg",
+            "link": "https://myanimelist.net/anime/55102/Girls_Band_Cry"
         }
     ],
     "manga": [
