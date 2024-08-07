@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Entry.astro
-title: "Tab for Simulation Swarm by Big Thief"
+title: Tab for Simulation Swarm by Big Thief
 description: "A guitar tab for Simulation Swarm by Big Thief."
 datePublish: 2024-05-19
 dateEdit: 2024-05-19
