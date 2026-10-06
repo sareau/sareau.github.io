@@ -1,0 +1,54 @@
+---
+import '../styles/reset.css';
+import '../styles/global.css';
+
+interface Props {
+	current: string;
+}
+
+const { current } = Astro.props;
+---
+<nav>
+    <h2>directory</h2>
+    <ul role="list">
+        <li>├── <span class={current === '/' ? 'active' : ''}><a href="/">home</a></span></li>
+        <li>├── <span class={current === '/blog' ? 'active' : ''}><a href="/blog">blog</a></span></li>
+        <li>├── interests<ul>
+            <li>│   ├── <span class={current === '/interests/favorites' ? 'active' : ''}><a href="/interests/favorites">favorites</a></span></li>
+            <li>│   └── <span class={current === '/interests/reviews' ? 'active' : ''}><a href="/interests/reviews">reviews</a></span></li>
+        </ul></li>
+        <li>└── <span class={current === '/works' ? 'active' : ''}><a href="/works">works</a></span><ul>
+            <li>    ├── writing</li>
+            <li>    ├── music</li>
+            <li>    └── scores</li>
+        </ul></li>
+    </ul>
+</nav>
+
+<style>
+    nav {
+        background-color: var(--color-background);
+        border: 1px solid var(--color-foreground);
+        padding: var(--spacer0) calc(var(--spacer0) * 1.5) var(--spacer0) var(--spacer0);
+        min-width: max-content;
+    }
+    h1 {
+        font-weight: bold;
+    }
+    ul {
+        list-style: none;
+    }
+    ul a {
+        text-decoration: none;
+    }
+    ul .active a {
+        text-decoration: underline;
+    }
+    ul li {
+        white-space: pre;
+    }
+    ul .active::after {
+        content: ' <-';
+        text-decoration: none;
+    }
+</style>

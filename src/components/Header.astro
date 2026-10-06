@@ -2,29 +2,48 @@
 import '../styles/reset.css';
 import '../styles/global.css';
 
+// import Logo from './Logo.astro';
+import Nav from './Nav.astro';
+
 interface Props {
-    heading: string;
+    current: string;
 }
 
-const { heading } = Astro.props;
-const Heading = heading;
+const { current } = Astro.props;
 ---
 
-<header>
+<div class="header-wrapper">
+    <header>
+        <Nav current={current} />
+        <div class="heading-wrapper">
+            <slot />
+        </div>
+    </header>
+</div>
+<!-- <header>
     <Heading><a href="/">SAREAU or SARA[H]</a></Heading>
     <span class="time">DAY HH:MM:SS</span>
-</header>
+</header> -->
 
 <style>
+    .header-wrapper {
+        width: 100%;
+        padding: var(--spacer0);
+        position: fixed;
+        top: 0;
+    }
     header {
         display: flex;
         justify-content: space-between;
-        padding: var(--spacer1);
-        position: sticky;
-        top: 0;
-        background-color: var(--color-background);
+        align-items: flex-start;
+        gap: var(--spacer0);
     }
-    a {
+    .heading-wrapper {
+        padding: var(--spacer0);
+        background-color: var(--color-background);
+        border: 1px solid var(--color-foreground);
+    }
+    .heading-wrapper a {
         text-decoration: none;
     }
     .time {
@@ -33,22 +52,22 @@ const Heading = heading;
 </style>
 
 <script is:inline>
-    setInterval(displayTime, 1000);
-    function displayTime() {
-        const days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
-        const date = new Date();
-
-        let day = date.getDay();
-        day = days[day]
-
-        let hours = date.getHours().toString();
-        let minutes = date.getMinutes().toString();
-        let seconds = date.getSeconds().toString();
-
-        hours = hours.length  > 1 ? hours : '0' + hours;
-        minutes = minutes.length  > 1 ? minutes : '0' + minutes;
-        seconds = seconds.length  > 1 ? seconds : '0' + seconds;
-
-        document.querySelector('.time').innerHTML = day + ' ' + hours + ':' + minutes + ':' + seconds;
-    }
+//     setInterval(displayTime, 1000);
+//     function displayTime() {
+//         const days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
+//         const date = new Date();
+//
+//         let day = date.getDay();
+//         day = days[day]
+//
+//         let hours = date.getHours().toString();
+//         let minutes = date.getMinutes().toString();
+//         let seconds = date.getSeconds().toString();
+//
+//         hours = hours.length  > 1 ? hours : '0' + hours;
+//         minutes = minutes.length  > 1 ? minutes : '0' + minutes;
+//         seconds = seconds.length  > 1 ? seconds : '0' + seconds;
+//
+//         document.querySelector('.time').innerHTML = day + ' ' + hours + ':' + minutes + ':' + seconds;
+//     }
 </script>

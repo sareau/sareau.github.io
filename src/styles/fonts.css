@@ -17,3 +17,33 @@
     src: url("/fonts/GeistMono-Bold.woff2") format("woff2"),
          url("/fonts/GeistMono-Bold.woff") format("woff");
 }
+
+/* tex gyre schola */
+
+@font-face {
+    font-family: 'TeX Gyre Schola';
+    src: url('/fonts/texgyreschola-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Schola';
+    src: url('/fonts/texgyreschola-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Schola';
+    src: url('/fonts/texgyreschola-bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Schola';
+    src: url('/fonts/texgyreschola-bolditalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}

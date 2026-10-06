@@ -5,12 +5,13 @@ import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Logo from '../components/Logo.astro';
+import ButtonLink from '../components/ButtonLink.astro';
 
-import json from './favorites/_favorites.json';
+import json from './interests/favorites/_favorites.json';
 
-const posts = await Astro.glob('./blog/*.md');
-const reviews = await Astro.glob('./reviews/*.md');
-const works = await Astro.glob('./works/*.md');
+const posts = Object.values(await import.meta.glob('./blog/*.md', { eager: true }));
+const reviews = Object.values(await import.meta.glob('./interests/reviews/*.md', { eager: true }));
+const works = Object.values(await import.meta.glob('./works/*.md', { eager: true } )) ;
 
 posts.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 reviews.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
@@ -18,12 +19,19 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 ---
 
 <Layout title="sareau" description="my tiny, little, miniscule, putrid, personal website.">
-	<Logo />
-	<Header heading="h1" />
+    <Header current="/" class:list={['header']}>
+        <h1>sareau</h1>
+    </Header>
+    <div class="hero">
+        <div class="welcome">
+            <h2>welcome!</h2>
+            <p>thanks for visiting !!!</p>
+        </div>
+    </div>
 	<main>
 		<div class="side">
 			<section>
-				<h2>STATUS</h2>
+				<h2>status</h2>
 				<div id="statuscafe">
 					<div id="statuscafe-username"></div>
 					<div id="statuscafe-content"></div>
@@ -31,17 +39,13 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 				<script src="https://status.cafe/current-status.js?name=sareau" defer is:inline></script>
 			</section>
 			<section>
-				<h2>LISTENING</h2>
+				<h2>listening</h2>
 				<p class="song"></p>
 				<p class="artist"></p>
 			</section>
 			<section>
-				<h2>WEBRINGS</h2>
-				<p>To be added.</p>
-			</section>
-			<section>
-				<h2>NEIGHBORS</h2>
-				<marquee behavior="scroll" direction="left" class="neighbors">
+				<h2>neighbors</h2>
+				<div class="neighbors">
 					<a href="https://mwiron.neocities.org"><img src="/buttons/mwiron.gif" loading="lazy" /></a>
 					<a href="https://kkiouji.neocities.org"><img src="/buttons/kkiouji.gif" loading="lazy" /></a>
 					<a href="https://melankorin.net/"><img src="https://melankorin.net/assets/img/buttons/button-1.gif" loading="lazy" /></a>
@@ -49,11 +53,11 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 					<a href="https://dimden.dev/"><img src="https://dimden.dev/services/images/88x31.gif" loading="lazy" /></a>
 					<a href="https://maia.crimew.gay"><img src="/buttons/maia.crimew.gay.png" loading="lazy" /></a>
 					<a href="https://frajola.neocities.org/"><img src="https://frajola.neocities.org/images/frajola.gif" alt="frajola" loading="lazy" /></a>
-				</marquee>
+				</div>
 			</section>
 			<section>
-				<h2>LINK ME</h2>
-				<p>Add my button if you want. (Hotlinking is cool.)</p>
+				<h2>link me</h2>
+				<p>add my button if you want.</p>
 				<div class="button-container">
 					<img src="/button.png" alt="my button." loading="lazy" />
 					<textarea readonly onclick="this.setSelectionRange(0, this.value.length)"><a href="https://sareau.github.io"><img src="https://sareau.github.io/button.png" alt="my button."/></a></textarea>
@@ -62,89 +66,92 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 		</div>
 		<div class="main">
 			<section>
-				<h2>WELCOME</h2>
-				<p>Welcome to this shoddily-coded website that I made. (What a wonderful world the modern web is.) Anyway, there isn't much here, but I hope you enjoy the pieces of myself that I'm comfortable with sharing to the world.</p>
-			</section>
-			<section>
-				<h2>ABOUT</h2>
+				<h2>about</h2>
 				<div class="about">
 					<div class="about-content">
-						<p>I'm Sara[h] (she/any). I'm a high school student interested in computer science, coding, web development, and design. This website is just a place where I can share my interests and (sometimes) ramble about whatever has taken over my mind for a period of time.</p>
-						<p>If you need to contact me, please don't. You can also find me on these platforms:</p>
+						<p>hai, i'm sara[h] (she/her). i'm a chud cs major who can't do anything but code personal websites like this one. this place is for me to show off my interests and projects and also to bullshit.</p>
+						<p>don't contact me (#leavemealone), but you can find me on these public platforms:</p>
 						<ul class="profiles" role="list">
-							<li><a href="https://twitter.com/sareaus" rel="me">Twitter</a></li>
-							<li><a href="https://bsky.app/profile/sareau.bsky.social" rel="me">Bluesky</a></li>
-							<li><a href="https://cohost.org/sareau" rel="me">Cohost</a></li>
-							<li><a href="https://www.instagram.com/r.sareau/" rel="me">Instagram</a></li>
-							<li><a href="https://www.last.fm/user/sareau" rel="me">Last.fm</a></li>
-							<li><a href="https://rateyourmusic.com/~sareau" rel="me">Rate Your Music</a></li>
-							<li><a href="https://bandcamp.com/sareau" rel="me">Bandcamp</a></li>
-							<li><a href="https://www.discogs.com/user/sareau" rel="me">Discogs</a></li>
-							<li><a href="https://musescore.com/user/49324478" rel="me">MuseScore</a></li>
+							<!-- <li><ButtonLink href="https://twitter.com/sareaus" label="twitter" /></li> -->
+							<li><ButtonLink href="https://bsky.app/profile/sareau.bsky.social" label="bluesky" /></li>
+							<li><ButtonLink href="https://letterboxd.com/sareau/" label="letterboxd" /></li>
+							<!-- <li><ButtonLink href="https://cohost.org/sareau" label="cohost" /></li> -->
+							<!-- <li><ButtonLink href="https://www.instagram.com/r.sareau/" label="instagram" /></li> -->
+							<li><ButtonLink href="https://www.last.fm/user/sareau" label="last.fm" /></li>
+							<li><ButtonLink href="https://rateyourmusic.com/~sareau" label="rym" /></li>
+							<!-- <li><ButtonLink href="https://bandcamp.com/sareau" label="bandcamp" /></li> -->
+							<li><ButtonLink href="https://www.discogs.com/user/sareau" label="discogs" /></li>
+							<li><ButtonLink href="https://musescore.com/user/49324478" label="musescore" /></li>
 						</ul>
-						<p>I really only put my Bluesky and Cohost here to say that I am those accounts; I'm not really active on them, so just go to my Twitter if you actually want to see any signs of life</p>
 					</div>
-					<figure class="about-persona">
+					<!-- <figure class="about-persona">
 						<img src="/myself.png" alt="a picture of my persona, created by kkiouji.">
 						<figcaption>a persona created for me by <a href="https://kkiouji.neocities.org">kkiouji</a>.</figcaption>
-					</figure>
+					</figure> -->
 				</div>
 			</section>
 			<section>
-				<h2 class="outlink"><a href="/blog/">BLOG</a></h2>
-				<p>Here are all of my blog posts, sharing whatever strong thoughts I have in the moment. Don't expect a new Marx or whoever out of me, yeah?</p>
-				<ul class="page-list" role="list">
-					{posts.map((post) =>
-						<li>
-							<p class="page-title"><a href={post.url}>{post.frontmatter.title}</a></p>
-							<p>{post.frontmatter.datePublish.slice(0, 10)}</p>
-						</li>
-					)}
-				</ul>
+				<h2 class="outlink"><a href="/blog/">blog</a></h2>
+				<div class="blog">
+    				<p>here are all of my blog posts, sharing whatever strong thoughts i have in the moment. don't expect a new marx or whoever out of me, yeah?</p>
+    				<ul class="post-list" role="list">
+    					{posts.map((post) =>
+    						<li>
+    							<p class="post-title"><a href={post.url}>{post.frontmatter.title}</a></p>
+    							<p>{post.frontmatter.datePublish.slice(0, 10)}</p>
+    						</li>
+    					)}
+    				</ul>
+				</div>
 			</section>
 			<section>
-				<h2>INTERESTS</h2>
-				<p>My biggest interest is probably music, both as a musician and as a music listener. I'm open to and love a lot of that weird, out-there, avant-garde music, the type of stuff that could cryogenically freeze a sickly Victorian child, but I'm not completely in the deep end. A lot of my favorites are very accessible and really just beautiful albums. As for my own playing, I love the ability to express yourself through music, something that can be so ethereal, charming, and gorgeous but also harsh, noisy, and aberrant. Personally, I play piano and guitar, and I really love both instruments. I've played piano for far longer, but recently, picking up guitar has kept me extremely captivated. (Probably because a lot of the music I listen to is based around guitars.)</p>
-				<p>Aside from music, my next biggest interest is probably coding (or computer science or whatever). There's just something very satisfying and satiating about developing something that can solve some problem, complete some task, show something that is worth showing. There's so much computational power in our hands nowadays, and to me, it's just a thrill to utilize that. Right now, I've only learned HTML, CSS, Python, and some JavaScript, but I'm hoping to learn more technologies in the future. I've currenlty been eyeing some lower-level languages like C++, Go, and Rust, but I know my ambitions still have time to settle in.</p>
-				<p>I've also come to love a lot of anime, manga, manhua, etc. over the years. Particularly, I've become a big fan of yuri and other sapphic content. Due to my own habits, I don't actually watch a lot of anime simply because of the time it takes, but I still love some (even though I read so much more manga).</p>
-				<p>You can take a look at some of my favorites and reviews below. It's not everything I've ever enjoyed, but it's a lot of them. I don't have many reviews as of now, but I hope to write more in the future.</p>
+				<h2>interests</h2>
+				<div class="interests">
+    				<p>to be rewritten #dontkillme</p>
+				</div>
 			</section>
 			<section>
-				<h2 class="outlink"><a href="/favorites/">FAVORITES</a></h2>
-				<p>I've got a lot of favorite pieces of media and not enough time to add them all to this website. You can visit the full page above or look at some of my favorite albums below (just a part of the list). They're in no particular order; I think they're all worthy of anyone's time.</p>
-				<ul class="favorites">
-					{json.albums.slice(0, 9).map((album) =>
-						<li>
-							<a href={album.link}>
-								<img src={album.image} alt={`${album.title} by ${album.artist}`} title={`${album.title} by ${album.artist}`} loading="lazy" />
-							</a>
-						</li>
-					)}
-				</ul>
+				<h2 class="outlink"><a href="/interests/favorites/">favorites</a></h2>
+				<div class="favorites">
+                    <p>i've got a lot of favorite pieces of media and not enough time to add them all to this website. You can visit the full page above or look at some of my favorite albums below (just a part of the list). they're in no particular order.</p>
+    				<ul class="favorites-grid">
+    					{json.albums.slice(0, 9).map((album) =>
+    						<li>
+    							<a href={album.link}>
+    								<img src={album.image} alt={`${album.title} by ${album.artist}`} title={`${album.title} by ${album.artist}`} loading="lazy" />
+    							</a>
+    						</li>
+    					)}
+    				</ul>
+				</div>
 			</section>
 			<section>
-				<h2 class="outlink"><a href="/reviews/">REVIEWS</a></h2>
-				<p>Here are my reviews; I'll never post any to a site dedicated to that type of thing, but if you're on this site and still reading then you're at least somewhat interested in my thoughts, so here they are.</p>
-				<ul class="page-list" role="list">
-					{reviews.map((review) =>
-						<li>
-							<p class="page-title"><a href={review.url}>{review.frontmatter.title}</a></p>
-							<p>{review.frontmatter.datePublish.slice(0, 10)}</p>
-						</li>
-					)}
-				</ul>
+				<h2 class="outlink"><a href="/interests/reviews/">reviews</a></h2>
+				<div class="reviews">
+				    <p>here are long(ish)-form reviews of stuff i like, dislike, or find interesting. my letterboxd is full of jokes except for the one-off serious thing, and i don't use rym to review stuff.</p>
+    				<ul class="post-list" role="list">
+    					{reviews.map((review) =>
+    						<li>
+    							<p class="post-title"><a href={review.url}>{review.frontmatter.title}</a></p>
+    							<p>{review.frontmatter.datePublish.slice(0, 10)}</p>
+    						</li>
+    					)}
+    				</ul>
+				</div>
 			</section>
 			<section>
-				<h2 class="outlink"><a href="/works/">WORKS</a></h2>
-				<p>These are some of the things I've made or have worked on that I want to point out. Right now, they're just some pieces of sheet music that I've made, but hopefully I'll eventually do some other things that deserve to be here.</p>
-				<ul class="page-list" role="list">
-					{works.map((work) =>
-						<li>
-							<p class="page-title"><a href={work.url}>{work.frontmatter.title}</a></p>
-							<p>{work.frontmatter.datePublish.slice(0, 10)}</p>
-						</li>
-					)}
-				</ul>
+				<h2 class="outlink"><a href="/works/">works</a></h2>
+				<div class="works">
+    				<p>here's some stuff i've worked on. it's mostly sheet music, but i'll probably put some other stuff here later.</p>
+    				<ul class="post-list" role="list">
+    					{works.map((work) =>
+    						<li>
+    							<p class="post-title"><a href={work.url}>{work.frontmatter.title}</a></p>
+    							<p>{work.frontmatter.datePublish.slice(0, 10)}</p>
+    						</li>
+    					)}
+    				</ul>
+				</div>
 			</section>
 		</div>
 	</main>
@@ -164,45 +171,56 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 </Layout>
 
 <style>
-	h2 {
-		font-weight: bold;
-	}
 	main {
-		margin-top: calc(var(--spacer4) - calc(var(--spacer1) * 2));
+		/*margin-top: calc(var(--spacer4) - calc(var(--spacer1) * 2));*/
 		margin-bottom: calc(var(--spacer4) - var(--spacer1));
-		padding: var(--spacer1);
+		padding: var(--spacer0);
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
-		gap: var(--spacer1);
+		gap: var(--spacer0);
 	}
+	h1, h2 {
+		font-weight: bold;
+	}
+    .hero {
+        background-image: url(/assets/hero.webp);
+        background-size: cover;
+        background-position: center;
+        padding: var(--spacer0);
+        border-block-end: 1px solid var(--color-foreground);
+        height: calc(var(--spacer4) * 3);
+        dispay: grid;
+        align-content: end;
+    }
+    .hero .welcome {
+        background-color: var(--color-background);
+        padding: var(--spacer0);
+        border: 1px solid var(--color-foreground);
+        width: max-content;
+    }
 	.side {
 		grid-column: 1 / 3;
 	}
 	.main {
 		grid-column: 3 / -1;
 	}
-	section > * + * {
-		margin-top: var(--spacer1);
+	section {
+		background-color: var(--color-background);
+        padding: var(--spacer0);
+        border: 1px solid var(--color-foreground);
 	}
+	/*section > * + * {
+		margin-top: var(--spacer1);
+	}*/
 	section + section {
-		margin-top: var(--spacer3);
+		margin-top: var(--spacer0);
 	}
-	.main section p {
+	/*.main section p {
 		text-align: justify;
-	}
-	.profiles {
-		list-style: none;
-	}
-	.profiles li {
-		border: 1px solid var(--color-foreground);
-		padding: 0.5rem;
-	}
-	.profiles li + li {
+	}*/
+	/*#statuscafe-content {
 		margin-top: var(--spacer1);
-	}
-	#statuscafe-content {
-		margin-top: var(--spacer1);
-	}
+	}*/
 	.button-container {
 		display: grid;
 		grid-template-columns: auto 1fr;
@@ -210,10 +228,41 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 	}
 	.button-container textarea {
 		border: 0;
-		background-color: var(--color-foreground);
-		color: var(--color-background);
+		background-color: var(--color-background);
+		color: var(--color-foreground);
 		resize: none;
 		font-size: 50%;
+	}
+	.about {
+		display: block;
+	}
+	.about-content > * + * {
+		margin-top: var(--spacer1);
+	}
+	.profiles {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacer0);
+		list-style: none;
+	}
+	.profiles li + li {
+		margin-top: 0;
+	}
+	.about-persona {
+	    margin-top: var(--spacer1);
+		border: 1px solid var(--color-foreground);
+	}
+	.about-persona img {
+		max-height: 50vh;
+		margin-inline: auto;
+	}
+	.about-persona figcaption {
+		border-top: 1px solid var(--color-foreground);
+		padding: 0.5rem;
+		text-align: center;
+	}
+	.blog > * + * {
+		margin-top: var(--spacer1);
 	}
 	.outlink a {
 		text-decoration: none;
@@ -221,75 +270,51 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 	.outlink a::after {
 		content: " \2197";
 	}
-	.page-list {
+	.post-list {
 		list-style: none;
 	}
-	.page-list li {
+	.post-list li {
 		display: grid;
 		grid-template-columns: 1fr auto;
 		gap: var(--spacer1);
 	}
-	.page-list li + li {
+	.post-list li + li {
 		margin-top: var(--spacer1);
 	}
-	.page-list li .page-title {
+	.post-list li .post-title {
 		width: 100%;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		text-transform: lowercase;
 	}
-    .favorites {
+	.interests > * + * {
+		margin-top: var(--spacer1);
+	}
+	.favorites > * + * {
+		margin-top: var(--spacer1);
+	}
+    .favorites-grid {
         list-style: none;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: var(--spacer1);
     }
-	.favorites > :last-child {
+	.favorites-grid > :last-child {
 		display: none;
 	}
-	.neighbors > * {
-		display: inline-block;
+	.reviews > * + *, .works > * + * {
+		margin-top: var(--spacer1);
+	}
+	.neighbors {
+	    margin-block-start: var(--spacer0);
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacer0);
 	}
 	.neighbors img {
 		height: 31px;
 		width: 88px;
-	}
-	.about {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--spacer1);
-		align-items: start;
-	}
-	.about-content > * + * {
-		margin-top: var(--spacer1);
-	}
-	.about-persona {
-		border: 1px solid var(--color-foreground);
-	}
-	.about-persona figcaption {
-		border-top: 1px solid var(--color-foreground);
-		padding: 0.5rem;
-		text-align: center;
-	}
-	@media (width < 80rem) {
-		.about {
-			display: block;
-		}
-		.about-persona {
-			margin-top: var(--spacer1);
-		}
-		.about-persona img {
-			max-height: 50vh;
-			margin-inline: auto;
-		}
-		.profiles {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 1rem;
-		}
-		.profiles li + li {
-			margin-top: 0;
-		}
 	}
 	@media (width < 32rem) {
 		main {
@@ -298,10 +323,10 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 		.main {
 			margin-top: var(--spacer4);
 		}
-        .favorites {
+        .favorites-grid {
             grid-template-columns: repeat(3, 1fr);
         }
-		.favorites > :last-child {
+		.favorites-grid > :last-child {
 			display: initial;
 		}
 	}

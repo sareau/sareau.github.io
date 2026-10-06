@@ -1,7 +1,7 @@
 @import url('./global.css');
 
 .markdown {
-    font-size: var(--font-size);
+    font-size: calc(var(--font-size) * 1.25);
     line-height: var(--line-height2);
     --markdown-spacer: calc(var(--font-size) * var(--line-height2));
 }
@@ -11,7 +11,7 @@
 }
 .markdown p {
     margin: var(--markdown-spacer) 0;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 .markdown em {
     font-style: italic;
@@ -45,7 +45,7 @@
 .markdown b, .markdown strong { font-weight: bold; }
 .markdown ul, .markdown ol {
     margin: var(--markdown-spacer) 0;
-    padding: 0 0 0 2ch; 
+    padding: 0 0 0 2ch;
 }
 .markdown ul li + li, .markdown ol li + li {
     margin-top: var(--markdown-spacer);

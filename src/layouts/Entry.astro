@@ -3,6 +3,8 @@ import '../styles/reset.css';
 import '../styles/global.css';
 import '../styles/markdown.css';
 
+import Header from '../components/Header.astro';
+
 const { frontmatter } = Astro.props;
 ---
 
@@ -29,16 +31,15 @@ const { frontmatter } = Astro.props;
 		<title>{frontmatter.title}</title>
 	</head>
 	<body>
-        <header>
-            <p class="home"><a href="/">SAREAU or SARA[H]</a></p>
-            <p class="back"><a href={`/${frontmatter.type}/`}>{frontmatter.type}</a></p>
-        </header>
+	    <Header current={`/${frontmatter.type}`}>
+			<p class="back"><a href={`/${frontmatter.type}`}>{frontmatter.type}</a></p>
+		</Header>
         <main>
             <section class="meta">
                 <h1>{frontmatter.title}</h1>
-                <p>PUBLISHED {frontmatter.datePublish.slice(0, 10)}</p>
-                <p>EDITED {frontmatter.dateEdit.slice(0, 10)}</p>
-                {frontmatter.type == "works" && <p>CATEGORY: {frontmatter.category}</p>}
+                <p>Published {frontmatter.datePublish.slice(0, 10)}</p>
+                <p>Edited {frontmatter.dateEdit.slice(0, 10)}</p>
+                {frontmatter.type == "works" && <p>Category: {frontmatter.category}</p>}
             </section>
             <div class="markdown">
                 <slot />
@@ -48,28 +49,18 @@ const { frontmatter } = Astro.props;
 </html>
 
 <style>
-    header {
-        display: flex;
-        justify-content: space-between;
-        gap: var(--spacer1);
-        padding: var(--spacer1);
-        position: sticky;
-        background-color: var(--color-background);
-    }
-    .home a {
-        text-decoration: none;
-    }
-    .back {
-        text-align: right;
-    }
     .back a {
         text-decoration: none;
-        text-transform: uppercase;
+        text-transform: lowercase;
     }
     .back a::after {
         content: " \2197";
     }
     main {
+        font-family: "TeX Gyre Schola", serif;
+        width: min(100%, 70ch);
+        margin-inline: auto;
+        margin-block-start: calc(var(--spacer4) * 2);
         margin-bottom: var(--spacer4);
     }
     .meta {
@@ -77,16 +68,14 @@ const { frontmatter } = Astro.props;
         margin-bottom: var(--spacer4);
         text-align: left;
         padding: 0 var(--spacer1);
-        text-transform: uppercase;
     }
     .meta > * + * {
         margin-top: var(--spacer1);
     }
     h1 {
-        font-weight: bold;
+        font-size: calc(var(--font-size) * 2);
     }
     .markdown {
         padding: 0 var(--spacer1);
-        text-align: justify;
     }
 </style>

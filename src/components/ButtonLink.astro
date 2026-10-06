@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import '../styles/reset.css';
+
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<div class="wrapper">
+    <a href={href} rel="me">{label}</a>
+</div>
+
+<style>
+    .wrapper {
+        color: var(--color-background);
+        background-color: var(--color-foreground);
+        padding: var(--spacer0);
+        --transition-time: 0.2s;
+        -webkit-transition: all var(--transition-time) ease;
+        -moz-transition: all var(--transition-time) ease;
+        -o-transition: all var(--transition-time) ease;
+        transition: all var(--transition-time) ease;
+    }
+    a {
+        color: var(--color-background);
+        background-color: transparent;
+        text-decoration: none;
+    }
+    .wrapper:hover {
+        /* letter-spacing: 0.125em; */
+        color: var(--color-foreground);
+        background-color: var(--color-background);
+    }
+    .wrapper:hover a:not(:has(img, svg)) {
+        color: var(--color-foreground);
+        background-color: transparent;
+    }
+    /*a:not(:has(img, svg)):hover {
+        color: var(--color-background);
+        background-color: var(--color-foreground);
+    }*/
+</style>

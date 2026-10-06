@@ -1,0 +1,61 @@
+---
+import '../../../styles/reset.css';
+import '../../../styles/global.css';
+
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+
+const reviews = Object.values(await import.meta.glob('./*.md', { eager: true }));
+reviews.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+---
+
+<Layout title="reviews" description="a dedicated page to the index of all my reviews.">
+    <Header current="/interests/reviews">
+        <h1>reviews</h1>
+    </Header>
+    <main>
+        <section>
+            <h2>reviews</h2>
+            <ul class="post-list" role="list">
+                {reviews.map((review) =>
+                    <li>
+                        <p class="post-title"><a href={review.url}>{review.frontmatter.title}</a></p>
+                        <p>{review.frontmatter.datePublish.slice(0, 10)}</p>
+                    </li>
+                )}
+            </ul>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    h1, h2 {
+        font-weight: bold;
+    }
+    main {
+  		margin-block-start: calc(var(--spacer4) * 2);
+  		margin-block-end: calc(var(--spacer4) - var(--spacer1));
+  		padding: var(--spacer0);
+    }
+    section > * + * {
+        margin-top: var(--spacer1);
+    }
+	.post-list {
+		list-style: none;
+	}
+	.post-list li {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: var(--spacer1);
+	}
+	.post-list li + li {
+		margin-top: var(--spacer1);
+	}
+	.post-list li .post-title {
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-transform: lowercase;
+	}
+</style>

@@ -1,11 +1,13 @@
 @import url('./fonts.css');
 
 :root {
+    color-scheme: light dark;
     --font-size: 1rem;
-    --line-height1: 1;
-    --line-height2: 1.5;
-    --color-foreground: hsl(0 0% 0%);
-    --color-background: hsl(0 0% 100%);
+    --line-height1: 1.25;
+    --line-height2: 1.75;
+    --color-foreground: light-dark(hsl(0 0% 0%), hsl(0 0% 100%));
+    --color-background: light-dark(hsl(0 0% 100%), hsl(0 0% 0%));
+    --spacer0: calc(var(--font-size) * 0.5);
     --spacer1: var(--font-size);
     --spacer2: calc(var(--font-size) * 3);
     --spacer3: calc(var(--font-size) * 5);
@@ -17,8 +19,11 @@
 }
 
 body {
-    width: min(160ch, 100%);
+    /*width: min(180ch, 100%);*/
     margin: 0 auto;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    line-height: var(--line-height1);
 }
 
 a {
@@ -28,7 +33,7 @@ a {
     -webkit-transition: all var(--transition-time) ease;
     -moz-transition: all var(--transition-time) ease;
     -o-transition: all var(--transition-time) ease;
-    transition: all var(--transition-time) ease; 
+    transition: all var(--transition-time) ease;
 }
 
 a:not(:has(img, svg)):hover {
