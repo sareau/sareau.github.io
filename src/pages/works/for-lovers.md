@@ -5,7 +5,7 @@ description: "Three arrangements of For Lovers by the Japanese band Lamp: one fo
 datePublish: 2022-12-22
 dateEdit: 2024-05-22
 type: "works"
-category: "Sheet Music"
+category: "scores"
 ---
 
 Three arrangements of "For Lovers" by Lamp. One for solo piano, one for piano and voice, and one for solo guitar. The arrangement for piano incorporates the vocal melody by doubling the right hand.

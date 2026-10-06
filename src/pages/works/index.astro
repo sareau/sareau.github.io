@@ -7,6 +7,11 @@ import Header from '../../components/Header.astro';
 
 const works = Object.values(await import.meta.glob('./*.md', { eager: true }));
 works.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+
+const writing = works.filter((work: any) => work.frontmatter.category === 'writing');
+const music = works.filter((work: any) => work.frontmatter.category === 'music');
+const scores = works.filter((work: any) => work.frontmatter.category === 'scores');
+
 ---
 
 <Layout title="works" description="a dedicated page to the index of all my works and projects.">
@@ -16,8 +21,34 @@ works.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.pars
     <main>
         <section>
             <h2>works</h2>
+            <p>this is where you can find all of my works, separated into categories (though i haven't worked on enough for that to really be necessary).</p>
+        </section>
+        <section>
+            <h3 id="writing">writing</h3>
             <ul class="post-list" role="list">
-                {works.map((work: any) =>
+                {writing.length == 0 ? <p>nothing yet...</p> : writing.map((work: any) =>
+                    <li>
+                        <p class="post-title"><a href={work.url}>{work.frontmatter.title}</a></p>
+                        <p>{work.frontmatter.datePublish.slice(0, 10)}</p>
+                    </li>
+                )}
+            </ul>
+        </section>
+        <section>
+            <h3 id="music">music</h3>
+            <ul class="post-list" role="list">
+                {music.length == 0 ? <p>nothing yet...</p> : music.map((work: any) =>
+                    <li>
+                        <p class="post-title"><a href={work.url}>{work.frontmatter.title}</a></p>
+                        <p>{work.frontmatter.datePublish.slice(0, 10)}</p>
+                    </li>
+                )}
+            </ul>
+        </section>
+        <section>
+            <h3 id="scores">scores</h3>
+            <ul class="post-list" role="list">
+                {scores.length == 0 ? <p>nothing yet...</p> : scores.map((work: any) =>
                     <li>
                         <p class="post-title"><a href={work.url}>{work.frontmatter.title}</a></p>
                         <p>{work.frontmatter.datePublish.slice(0, 10)}</p>
@@ -29,13 +60,16 @@ works.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.pars
 </Layout>
 
 <style>
-    h1, h2 {
+    h1, h2, h3 {
         font-weight: bold;
     }
     main {
         margin-block-start: calc(var(--spacer4) * 2);
 		margin-block-end: calc(var(--spacer4) - var(--spacer1));
 		padding: var(--spacer0);
+    }
+    section + section {
+        margin-top: var(--spacer2);
     }
     section > * + * {
         margin-top: var(--spacer1);

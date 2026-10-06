@@ -18,9 +18,9 @@ const { current } = Astro.props;
             <li>│   └── <span class={current === '/interests/reviews' ? 'active' : ''}><a href="/interests/reviews">reviews</a></span></li>
         </ul></li>
         <li>└── <span class={current === '/works' ? 'active' : ''}><a href="/works">works</a></span><ul>
-            <li>    ├── writing</li>
-            <li>    ├── music</li>
-            <li>    └── scores</li>
+            <li>    ├── <a href="/works/#writing">writing</a></li>
+            <li>    ├── <a href="/works/#music">music</a></li>
+            <li>    └── <a href="/works/#scores">scores</a></li>
         </ul></li>
     </ul>
 </nav>
