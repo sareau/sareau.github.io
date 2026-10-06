@@ -6,7 +6,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 
 const reviews = Object.values(await import.meta.glob('./*.md', { eager: true }));
-reviews.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+reviews.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 ---
 
 <Layout title="reviews" description="a dedicated page to the index of all my reviews.">
@@ -17,7 +17,7 @@ reviews.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.fron
         <section>
             <h2>reviews</h2>
             <ul class="post-list" role="list">
-                {reviews.map((review) =>
+                {reviews.map((review: any) =>
                     <li>
                         <p class="post-title"><a href={review.url}>{review.frontmatter.title}</a></p>
                         <p>{review.frontmatter.datePublish.slice(0, 10)}</p>

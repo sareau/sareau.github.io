@@ -12,9 +12,9 @@ const posts = Object.values(await import.meta.glob('./blog/*.md', { eager: true 
 const reviews = Object.values(await import.meta.glob('./interests/reviews/*.md', { eager: true }));
 const works = Object.values(await import.meta.glob('./works/*.md', { eager: true } )) ;
 
-posts.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
-reviews.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
-works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+posts.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+reviews.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
+works.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 ---
 
 <Layout title="sareau" description="my tiny, little, miniscule, putrid, personal website.">
@@ -94,7 +94,7 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 				<div class="blog">
     				<p>here are all of my blog posts, sharing whatever strong thoughts i have in the moment. don't expect a new marx or whoever out of me, yeah?</p>
     				<ul class="post-list" role="list">
-    					{posts.map((post) =>
+    					{posts.map((post: any) =>
     						<li>
     							<p class="post-title"><a href={post.url}>{post.frontmatter.title}</a></p>
     							<p>{post.frontmatter.datePublish.slice(0, 10)}</p>
@@ -129,7 +129,7 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 				<div class="reviews">
 				    <p>here are long(ish)-form reviews of stuff i like, dislike, or find interesting. my letterboxd is full of jokes except for the one-off serious thing, and i don't use rym to review stuff.</p>
     				<ul class="post-list" role="list">
-    					{reviews.map((review) =>
+    					{reviews.map((review: any) =>
     						<li>
     							<p class="post-title"><a href={review.url}>{review.frontmatter.title}</a></p>
     							<p>{review.frontmatter.datePublish.slice(0, 10)}</p>
@@ -143,7 +143,7 @@ works.sort((a, b) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontm
 				<div class="works">
     				<p>here's some stuff i've worked on. it's mostly sheet music, but i'll probably put some other stuff here later.</p>
     				<ul class="post-list" role="list">
-    					{works.map((work) =>
+    					{works.map((work: any) =>
     						<li>
     							<p class="post-title"><a href={work.url}>{work.frontmatter.title}</a></p>
     							<p>{work.frontmatter.datePublish.slice(0, 10)}</p>
