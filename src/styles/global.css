@@ -7,6 +7,8 @@
     --line-height2: 1.75;
     --color-foreground: light-dark(hsl(0 0% 0%), hsl(0 0% 100%));
     --color-background: light-dark(hsl(0 0% 100%), hsl(0 0% 0%));
+    --color-text-background: light-dark(hsl(0 0% 90%), hsl(0 0% 20%));
+    --color-text-border: light-dark(hsl(0 0 80%), hsl(0 0% 30%));
     --spacer0: calc(var(--font-size) * 0.5);
     --spacer1: var(--font-size);
     --spacer2: calc(var(--font-size) * 3);

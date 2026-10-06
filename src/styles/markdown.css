@@ -52,8 +52,8 @@
 .markdown code {
     font-family: "Geist Mono", monospace;
     font-size: var(--font-size);
-    background: hsl(from var(--color-foreground) h s 90%);
+    background: var(--color-text-background);
     padding: calc(var(--spacer0) * 0.5);
-    border: 1px solid hsl(from var(--color-foreground) h s 80%);
+    border: 1px solid var(--color-text-border);
     border-radius: calc(var(--spacer0) * 0.5);
 }
