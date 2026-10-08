@@ -5,7 +5,7 @@ import '../../../styles/global.css';
 import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 
-const reviews = Object.values(await import.meta.glob('./*.md', { eager: true }));
+const reviews = Object.values(import.meta.glob('./*.md', { eager: true }));
 reviews.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 ---
 

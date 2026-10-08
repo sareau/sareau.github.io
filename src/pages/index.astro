@@ -8,9 +8,9 @@ import ButtonLink from '../components/ButtonLink.astro';
 
 import json from './interests/favorites/_favorites.json';
 
-const posts = Object.values(await import.meta.glob('./blog/*.md', { eager: true }));
-const reviews = Object.values(await import.meta.glob('./interests/reviews/*.md', { eager: true }));
-const works = Object.values(await import.meta.glob('./works/*.md', { eager: true } )) ;
+const posts = Object.values(import.meta.glob('./blog/*.md', { eager: true }));
+const reviews = Object.values(import.meta.glob('./interests/reviews/*.md', { eager: true }));
+const works = Object.values(import.meta.glob('./works/*.md', { eager: true } )) ;
 
 posts.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 reviews.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
@@ -106,11 +106,12 @@ works.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.pars
 			<section>
 				<h2>interests</h2>
 				<div class="interests">
-    				<p>to be rewritten #dontkillme</p>
+    				<p>my biggests interests right now are probably music and film. i've kind of fallen into a gutter in terms of my music listening, mainly listening to jane remover, underscores, and related artists, but like... they're the goats. i have been exploring more in recent weeks, so maybe they'll show up in the next section. as for film, it's only been about a year or so since i've gotten interested, but i keep a healthy <a href="https://letterboxd.com/sareau/">letterboxd</a> going. if you don't want to look, my top 4 right now is look back (2024), resurrection (2025), monster (2023), and no other choice (2025). all stupendous movies, life-changing experiences really.</p>
+                    <p>i also like some anime and manga, mainly yuri because i don't care about guys that much. i think everything on my favorites page is worth a read, but i do need to do some updating. all that said, i am not opposed to reading some good old-fashioned slop every once in a while (quite often actually) since i basically don't have to think to take in the story, but they'll never show up on this website.</p>
 				</div>
 			</section>
 			<section>
-				<h2 class="outlink"><a href="/interests/favorites/">favorites</a></h2>
+				<h2 class="outlink" id="favorites"><a href="/interests/favorites/">favorites</a></h2>
 				<div class="favorites">
                     <p>i've got a lot of favorite pieces of media and not enough time to add them all to this website. You can visit the full page above or look at some of my favorite albums below (just a part of the list). they're in no particular order.</p>
     				<ul class="favorites-grid">

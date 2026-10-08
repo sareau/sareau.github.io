@@ -5,7 +5,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 
-const works = Object.values(await import.meta.glob('./*.md', { eager: true }));
+const works = Object.values(import.meta.glob('./*.md', { eager: true }));
 works.sort((a: any, b: any) => Date.parse(b.frontmatter.datePublish) - Date.parse(a.frontmatter.datePublish))
 
 const writing = works.filter((work: any) => work.frontmatter.category === 'writing');
