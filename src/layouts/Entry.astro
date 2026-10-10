@@ -6,6 +6,9 @@ import '../styles/markdown.css';
 import Header from '../components/Header.astro';
 
 const { frontmatter } = Astro.props;
+
+const datePublish = frontmatter.datePublish.slice(0, 10);
+const dateEdit = frontmatter.dateEdit.slice(0, 10);
 ---
 
 <!doctype html>
@@ -39,7 +42,7 @@ const { frontmatter } = Astro.props;
                 {frontmatter.type == "works" && <p class="category">{frontmatter.category}</p>}
                 <h1>{frontmatter.title}</h1>
                 <p>Published {frontmatter.datePublish.slice(0, 10)}</p>
-                <p>Edited {frontmatter.dateEdit.slice(0, 10)}</p>
+                {datePublish == dateEdit ? null : <p>Edited {frontmatter.dateEdit.slice(0, 10)}</p>}
             </section>
             <div class="markdown">
                 <slot />
